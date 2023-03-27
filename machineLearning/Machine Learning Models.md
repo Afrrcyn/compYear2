@@ -1,6 +1,6 @@
-# Machine Learning Models
 
 # Machine Learning Models I
+
 
 <aside>
 💡 Recall the “Data + Model” Strategy
@@ -527,3 +527,5 @@ Applying a polynomial kernel:
 Another space transformation demo using kernel:
 
 [SVM Visualization](https://www.youtube.com/watch?v=ndNE8he7Nnk)
+
+

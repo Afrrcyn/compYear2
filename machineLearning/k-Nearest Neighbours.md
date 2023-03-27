@@ -1,5 +1,3 @@
-# k-Nearest Neighbours
-
 # k-Nearest Neighbours I
 
 ## History
