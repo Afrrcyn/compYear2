@@ -1,5 +1,3 @@
-# Fault Tolerance
-
 # Fault Tolerance I
 
 A characteristic of distributed systems that distinguishes them from single-machine systems is the notion of partial failure: part of the system is failing while the remaining part continues to operate, and seemingly correct
@@ -69,10 +67,10 @@ If a system is to be fault tolerant, the best it can do is to try to hide the oc
 
 Redundancy can indeed create problems 
 
-[Data Replication](https://www.notion.so/Data-Replication-e47e4f56916b4574a19eecb4ce2f95e2)
+[[Data Replication]]
 
 - Associated with the consistency of data replicas (e.g. all data needs to be updated)
-- Should improve (overall) system performance, but keeping replicas consistent can damange performance
+- Should improve (overall) system performance, but keeping replicas consistent can damage performance
 
 But above all, need to make sure that any failure won’t leave our system in an inconsistent (corrupted) state
 
