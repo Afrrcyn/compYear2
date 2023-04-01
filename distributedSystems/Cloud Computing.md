@@ -1,5 +1,3 @@
-# Cloud Computing
-
 # Cloud Computing I
 
 ## Drivers of Modern Distributed Systems
