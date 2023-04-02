@@ -64,6 +64,7 @@ $w' = 1$
 
 ###### Homogeneous coordinates
 - In order to use a consistent matrix representation for all kinds of linear transformations, we've had to add an extra coordinate $w$ to our 3D coordinate $\big [  x,\ y,\ z \big]$
+- tl;dr A fourth coordinate, $w$, is added to the tuple to represent a homogeneous coordinate.
 - This coordinate form $\big [  x,\ y,\ z,\ w \big]$ is called homogeneous coordinates, but what is w and where is it from? Well, it's the 4th spatial dimension, when $w = 1$ we can ignore it, however if it's $w \neq 1$ we have to normalise it. By normalising it, we mean to change all the $x,y,z,w$ so that w does become 1, otherwise we get scaling problems.
 
 ##### 3D scaling (with homogeneous)
@@ -133,6 +134,9 @@ Therefore $P' = M_1 ^{-1} . M_2 ^{-1} . M_3 ^{-1}. M_4 . M_3 . M_2 . M_1 . P$
 $P_{drawn} = \text{ProjectionMatrix} \times \text{Model-ViewMatrix} \times P_{specified}$
 
 ### Essential Vector Geometry!
+>[!note] Note
+>Note $wth$ coordinate stays at 1 despite any operation
+
 - ==Addition== - Subtraction works in much the same way!
 $$\begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} + \begin{bmatrix} x' \\ y' \\ z' \\ 1 \end{bmatrix} = \begin{bmatrix} x + x' \\ y+y' \\ z+z' \\ 1 \end{bmatrix}$$
 - ==Scalar Multiplication==
@@ -185,6 +189,7 @@ void main() {
 - It must set a value for `gl_FragColor` (a vec4) which is the final colour of the fragment.
 
 ![[Pasted image 20230210100225.png|400]]
+> Rasterization is the process of converting vector graphics or images, which are described as mathematical equations, into raster graphics or images, which are made up of pixels.
 
 ![[Pasted image 20230210100343.png|400]]
 
