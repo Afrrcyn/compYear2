@@ -1,14 +1,21 @@
 >[!warning] Question, Ask in Lecture!
 >[[#^8ce4b4|Here]], doesn't this transformation achieve nothing and therefore what's the point in doing it?
 
+3D coordinates represent a point in space and it's measured with respect to origin and a set of $x,y,z$ axes
+
+##### Coordinates and Vectors
 Both Coordinates and Vectors can be represented by a triple of $x,\ y,\ z$  values. In computer graphics we usually write these out in the format: $$\begin{align} V &= \begin{bmatrix} x \\ y \\ z \end{bmatrix} \end{align}$$
-So if we have the above vector for an an object, then we can say the spatial relationship between the origin and the melon is described by vector $V$
+So if we have the above vector for an an object, then we can say the **spatial relationship** between the origin and the melon is described by vector $V$
+
+> [!Definition]
+> Spatial Relationship: Spatial relationship refers to the way in which objects or things are positioned or arranged in relation to one another in physical space. It involves understanding the location, orientation, and distance between objects, as well as the way they interact and relate to each other in three-dimensional space.
 
 > [!Note]
 > We could easily have used a row vector for the coordinates, they both transpose to each other but it's not of importance. 
 
+#### Geometrical Transformations
 ##### Translate
-- Simply moving an object: $$\begin{align} x' = x + \text{t}x \\ y' = y + \text{t}y \\ z' = z + \text{t}y \end{align}$$
+- Simply moving an object in space: $$\begin{align} x' = x + \text{t}x \\ y' = y + \text{t}y \\ z' = z + \text{t}y \end{align}$$
 ![[Pasted image 20230208105727.png|500]]
 
 ##### Scaling
@@ -19,7 +26,7 @@ So if we have the above vector for an an object, then we can say the spatial rel
 ![[Pasted image 20230208110707.png|500]]
 
 > [!Note] 
-> That: The positive direction of a rotation is anti-clockwise!
+> The positive direction of a rotation is anti-clockwise!
 
 So how do we calculate the new position? Let's draw out an example.
 
@@ -29,10 +36,10 @@ $$\begin{align} x = R\cos \phi \\ y = R\sin \phi \\ x' = R\cos(\theta + \phi) \\
 ![[IMG_FDC27F486036-1.jpeg|500]]
 [The image above, is just me visually trying to understand how rotation works and how we figured out the equation above]
 
-Note that if we are not rotating around the origina but rather a point, say point $Q$ = $(x_1, y_1)$ then we simply translate all points (by the same translation) such that point $Q$ becomes the origin - we then perform the rotation and then translate the origin back to $Q$.
+Note that if we are not rotating around the origin but rather a point, say point $Q$ = $(x_1, y_1)$ then we simply translate all points (by the same translation) such that point $Q$ becomes the **origin** - we then perform the rotation and then translate the origin back to $Q$ (which was not origin but the original starting point).
 
 ##### Rotations (3D)
-- for Rotation in the Z axis, on the vector $\big [x,\ y,\ z \big]$, the $z$ value stays the same and so, it's simply a 2D rotation on the values $x$and $y$ thus: $$\begin{align} x' = x\cos \theta - y \sin \theta \\ y' = x \sin \theta + y \sin \theta \\ z' = z \end{align}$$
+- for Rotation in the Z axis, on the vector $\big [x,\ y,\ z \big]$, the $z$ value stays the same and so, it's simply a 2D rotation on the values $x$ and $y$ thus: $$\begin{align} x' = x\cos \theta - y \sin \theta \\ y' = x \sin \theta + y \sin \theta \\ z' = z \end{align}$$
 
 ##### Rotations (3D) around a vector
 - In 3D we may want to rotate or scale about an arbitrary axis vector...
@@ -57,7 +64,7 @@ $w' = 1$
 
 ###### Homogeneous coordinates
 - In order to use a consistent matrix representation for all kinds of linear transformations, we've had to add an extra coordinate $w$ to our 3D coordinate $\big [  x,\ y,\ z \big]$
-- This coordinate form $\big [  x,\ y,\ z,\ w \big]$ is called homogeneous coordinates, but what is w and where is it from? Well, it's the 4th spatial dimension, when $w = 1$ we can ignore it, however if it's $w \neq 1$ we have to normalise it.
+- This coordinate form $\big [  x,\ y,\ z,\ w \big]$ is called homogeneous coordinates, but what is w and where is it from? Well, it's the 4th spatial dimension, when $w = 1$ we can ignore it, however if it's $w \neq 1$ we have to normalise it. By normalising it, we mean to change all the $x,y,z,w$ so that w does become 1, otherwise we get scaling problems.
 
 ##### 3D scaling (with homogeneous)
 $$\begin{align} \begin{bmatrix} x' \\ y' \\ z' \\ 1 \\ \end{bmatrix} = \begin{bmatrix} \text{S}x & 0 & 0 & 0 \\ 0 & \text{S}y & 0 & 0 \\ 0 & 0 & \text{S}z & 0\\ 0 & 0 & 0 & 1 \end{bmatrix} . \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} \end{align}$$
@@ -75,15 +82,22 @@ $$\begin{align} \begin{bmatrix} x' \\ y' \\ z' \\ 1 \\ \end{bmatrix} = \begin{bm
 Remember earier when we spoke about rotating a vector around a point as opposed to the origin and that we would translate the point to the origin, perform the rotation and translate back, well we can perform all these transformations separately - or, we can turn all the operations into one matrix and apply one operation:
 $$\begin{align} P' = T_2.T_1.P \\ T_c = T_2. T_1 \\ 
 P' = T_c.P\end{align}$$
-By multiplying matrices together we get the affect of applying both of them to a vector, note however that the order in which we multiply and apply them to a vector is important. So it's non commutative!
+By multiplying matrices together we get the affect of applying both of them to a vector, note however that the order in which we multiply and apply them to a vector is important. So it's non commutative! (so order matters, tim was wrong?p)
+
+> [!NOTE]
+> Commutative: Commutative refers to a mathematical property where the order of the operands does not affect the result of the operation. In other words, if a mathematical operation is commutative, it means that switching the order of the operands does not change the outcome.
 
 We might also need this for when scaling, if we do not scale a point about the origin, we will end up translating it as well and we may not want to do that, so we translate to origin, scale and translate back, this can be made into 1 transformation using 3 operations, with operation 3 undoing the affects of operation 1.
 
+##### Inverse Matrix
 What if we want to undo a transformation? Well we simply find the inverse of a matrix, and that undoes what the matrix did. Say for example: $$\begin{align} A = \begin{bmatrix} 1 & 0 & 0 & \text{t}x \\ 0 & 1 & 0 & \text{t}y \\ 0 & 0 & 1 & \text{t}z \\ 0 & 0 & 0 & 1 \end{bmatrix}  \end{align}$$ (Note this is a Translation Matrix, we can then use the inverse) $$\begin{align} B = \begin{bmatrix} 1 & 0 & 0 & -\text{t}x \\ 0 & 1 & 0 & -\text{t}y \\ 0 & 0 & 1 & -\text{t}z \\ 0 & 0 & 0 & 1 \end{bmatrix}  \end{align}$$
 And thus $A.B = I$ where $I$ is the identity function, this makes sense logically as the 2 matrix operations should cancel each other and thus it would have the same effect as multiplying by the Identity Matrix.
 
 >[!note] This is the definition of an inverse
 >If $A$ multiplied by $B$ is the identity function $I$, then $A$ and $B$ are inverses. BUT please do note here that not all Matrices have an inverse.
+##### Non-invertible Transformation
+For example if we have a matrix with all y-coordinates as 0, $$\begin{align} B = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}  \end{align}$$
+This matrix has no inverse, therefore this is called a singular matrix. In general, a transformation is singular if it throws away information. For example, from a 3D view we can go to a plan view but from that plan view we cannot go back to the 3D view.
 
 ##### Arbitrary Rotation on a vector
 Step 1: We shift vector $A$ until it passes through the origin, this is transformation $M_1$, call this new vector $A_1$
@@ -102,7 +116,7 @@ Step 4: Perform the desired rotation about the X-axis by $\theta$ (which we know
 
 ![[Pasted image 20230209204043.png|400]]
 
-> Now undo all the other transformations in reverse order:
+> Now undo all the other transformations in reverse order: (so applying inverse of all transformations in reverse order, $M_3, M_2, M_1$)
 
 Step 5: Apply $M_3 ^{-1}$
 Step 6: Apply $M_2 ^{-1}$
