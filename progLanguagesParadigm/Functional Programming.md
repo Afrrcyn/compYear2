@@ -199,7 +199,7 @@ Let Expression
 ```haskell
 y = let x = 10 + 10 in x + x
 ```
-> `y` is 40 here, and the `let` command is also have the abilities of [[#^a6d609|shadowing]], now what happens in the code below, what is printed when we print `w`?
+> `y` is 40 here, and the `let` command is also have the abilities of [[#^a6d609|shadowing]], now what happens in the code below, what is printed when we print `w`? Nothing ever changes in Haskell, we just define it again
 
 ```haskell
 w = let x = 5 in 
@@ -211,7 +211,7 @@ main = print (w)
 ```
 
 >[!info]- Answer
-> `w` will equal `5` and that's because, the function is defined just after setting `x = 5` and once defined the function cannot really be changed.
+> `w` will equal `5` and that's because, the function is defined just after setting `x = 5` and once defined the function cannot really be changed. The *function* being talked around here is `let f = \n -> x` . If we call `f 0`, then of course it will return 5 as it goes back to where `f` was defined and the last saved value for `x` back then was just 5.
 
 
 
