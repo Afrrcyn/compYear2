@@ -1,5 +1,5 @@
 One of the key features of functional programming is the treatment of functions much like any other piece of data.
-- So to define them without naming them.
+- So to define them without **naming them**.
 Other features are:
 - I want to be able to pass functions as inputs and outputs within other functions - known as ***Higher Order Functions***
 - We want to reason with functions as if they were mathematical functions.
@@ -61,7 +61,7 @@ If-Then-Else
 v1 = if b then 5 else 6
 v2 = 7 * (if b then 5 else 6)
 ```
-> Means exactly what it looks like.
+> Means exactly what it looks like. The `if then else` instructions are not instructions, it's just like writing mathematical definitions in cases
 
 Defining a function:
 ```haskell
@@ -82,7 +82,7 @@ small n = False
 ^dea07f
 
 > if the function `small` is called with values `0` or `1`,`True` is returned, however any other value, `False` is returned.
-> Please also note that the order of these functions matters, if `small n = ...` was defined before `small 1 = ...` then `print (small 1)` would return `False` (and a warning!)
+> Please also note that the order of these functions matters, if `small n = ...` was defined before `small 1 = ...` then `print (small 1)` would return `False` (and a warning!) - redundant warning because `small n`  just means all values except for the ones defined, that is `small 0`. So it would not care about any other definitions after `small n`
 
 More than 1 parameter
 ```haskell
