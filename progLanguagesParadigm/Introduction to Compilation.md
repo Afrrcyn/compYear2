@@ -1,5 +1,3 @@
-# Introduction to Compilation
-
 # Introduction
 
 Any program written in a programming language must be translated before it can be executed.
