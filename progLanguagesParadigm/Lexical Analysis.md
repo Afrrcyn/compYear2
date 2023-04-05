@@ -168,3 +168,49 @@ Separate states by if they are terminating states or not. If non-terminating sta
 
 This is how it would be minimised as a DFA. Split states into terminating and non-terminating, and then find if states going out of current group. Here $a$ was pointed to the other group. What if the other group was not a terminating group?
 ![[Pasted image 20230405072756.png]]
+
+### Building Fast Scanners
+Why have we been converting a RE into a DFA?
+If we know the transition table and the final state(s) we can build directly a recogniser that detects acceptance
+![[Pasted image 20230405224914.png]]
+However, table-driven recognisers can waste a lot of effort, why? In reality, programming languages will generate very large tables. So in this process of generating a table is captured into code directly. The whole table is directed into the code
+##### How are reserved keywords dealt with?
+* Many compilers recognise keywords as identifiers and check them in a table
+* One may also include them as REs in the lexical analyser's specification
+
+#### Direct coding from the transition table
+> [!Recall]
+> $Regisiter -> r \ digit \ digit^*$
+
+The following bundles together transition table and code:
+![[Pasted image 20230405225552.png]]
+This ensures:
+* Fewer operations, hence runs faster
+* Avoids memory operations (especially important for large tables)
+* Added complexity may make the code ugly and difficult to understand, however it is all generated automatically.
+#### Practical Considerations
+Poor language design may complicate lexical analysis:
+* `if if then then = else else else = then (PL/I)` - I do not know what this means?
+* `DO5I = 1,25` vs `DO5I = 1.25` - here, the first assignment is a range value from 1 to 25 till 5 is detected, the second assignment is just assigning the double value `1.25` to a variable called `DO51`
+* The development of a sound theoretical basis has influenced language design positively. Both examples are from languages that pre-date lexical analysis as we know it today.
+Template syntax in C++:
+* `aaaa<mytype>`
+* `aaaa<mytype<int>>` (where `>>` is an operator for writing to the output stream ...)
+The lexical analyser treates the `>>` operator as two consecutive `>` symbols. The confusion will be resolved by the parser (by matching `<,>`)
+
+#### Flex / Lex: Generating Lexical Analyser
+**Flex** is a tool for generating lexical analysers: programs which recognise lexical patterns in text (from the online manual pages: `% man flex`)
+The input consists of 3 sections:
+* Regular expressions
+* Pairs of regular expressions and C code
+* Auxiliary C code
+When the input is compiled, it generates as output a C source file `lex.yy.c` that contains a routine `yylex()`. After compiling the C file, the executable will start isolating tokens from the input according to the regular expressions, and, for each token, will execute the code associated with it. The array char `yytext[]` contains the representation of a token.
+##### Flex Example
+![[Pasted image 20230405235113.png]]
+From this example, have a look at the input file and the output of it. You can see that for each input, there is a corresponding value in the output section. For every pattern not defined, it returns `-1` which is defined for `ERROR`
+Therefore, the `flex` software can produce tokens easily without the compiler developers about lexical analysis.
+
+### Summary
+Lexical analysis turns a stream of characters into a stream of tokens:
+* an automated process: from REs to NFAs to DFAs
+* REs are powerful enough to specify patterns and allow us to automate the process
