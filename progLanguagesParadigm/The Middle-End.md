@@ -120,6 +120,89 @@ In lexical analysis, we can detect symbols and variables, and add them directly 
 		* Allocate and initialise a symbol table for each scope
 	* By far, easiest to have a single global namescope (but not most efficient), yet another trade off.
 
+### The Intermediate Representation
+Once the source code has been checked for errors, the compiler needs to convert it into a convenient intermediate representation. This representation can also be used to:
+- Facilitate retargeting
+- Enable machine-independent code optimisations and/or aggressive code generation strategies.
+Design issues:
+* Ease of generation, ease of manipulation, cost of manipulation, level of abstraction, size of typical procedure
+* Decisions with the IR design have major effects on the speed and effectiveness of compiler
+A useful distinction (both types co-exist in practice):
+* An internal representation to represent code
+* An internal representation to capture properties of the code that may be useful for analysis
+#### Taxonomy of IR
+Categories of IRs to represent code by structure:
+* Graphical (structural): such as trees
+	* Close to source code
+	* Node and edge structures tend to be large
+* Linear: Pseudocode for some abstract machine:
+	* Large variation
+	* Close to target code
+* Hybrid: Combination of both
+Auxiliary (mostly graphical) representations may be used to capture properties of the code (but not the whole code)
+
+>[!Note]
+>There are no universally good choices for IR. The right choices depend on the goals of the compiler
+
+#### From Parse Trees to Abstract Syntax Trees
+Why do we not want to use parse trees?
+	Has a lot of unnecessary information
+How to convert that into an abstract syntax tree?
+* Traverse the tree in post order (first traverse node x's subtrees in left-to-right order and then node x)
+* Remove non-terminal symbols
+![[Pasted image 20230407034202.png]]
+
+### Abstract Syntax Trees
+An abstract syntax tree (AST) is the procedure's parse tree with the non-terminal symbols removed
+##### Example: `x-2*y`
+![[Pasted image 20230407034331.png]]
+
+The AST is a near source-level representation
+Source code can be easily generated: perform an inorder treewalk - first the left subtree, then the root, then the right subtree - printing each node as visited
+Issues: Traversals and transformations are pointer-intensive; generally memory intensive
+Example: `Stmt_sequence -> stmt; Stmt_sequence | stmt`
+* Atleast three AST versions for stmt;stmt;stmt;
+	![[Pasted image 20230407034718.png]]
+
+#### Three Address Code
+A term used to describe many different representations: each statement is a single operator and at most three operands
+Example: $if (x>y) \ then \ z=x-2*y$ becomes:
+```assembly
+t1 = load x
+t2 = load y
+t3 = t1>t2
+if not (t3) goto L
+t4 = 2 * t2
+t5 = t1 - t4
+z = store t5
+L = ...
+```
+>[!Note]
+>Array addresses have to be converting into a single memory access. Example, `a[i]` will always require a `load i` and then something like: `t1 = i*sizeOf(i);` `load base_address(a)+t1`
+ 
+Advantages: Compact form, makes intermediate values explicit, resembles many machines
+Storage considerations (Until recently compile-time was an issue)
+![[Pasted image 20230407035630.png]]
+#### Other Linear Considerations
+* Two address code: This is more compact, in general it allows statements of the form `x = x<op>y` (single operator and at most two operands)
+```assembly
+load r1,y
+loadi r2,2
+multiply r2,r2, r1
+load r3, x
+sub r3,r3,2
+```
+* One address code: (Aka stack machine code) is more compact (more than two address?). Would be useful in environments where space is at a premium (has been used to construct byte interpreters for Java):
+```assembly
+push 2
+push y
+multiply
+push x
+subtract
+
+// note that when multiply, it multiplies the first 2 elements on top of stack, should be similar to every other operator too
+```
+
 
 
 
