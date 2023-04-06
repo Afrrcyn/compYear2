@@ -61,6 +61,66 @@ How can we then answer these questions:
 >[!Definition]
 >Ad hoc: Done for a specific purpose
 
+#### Symbol Tables
+A data structure which acts as a central repository of facts
+* Could be one symbol table or a set of symbol tables.
+It is first created during [[Lexical Analysis]]
+It is retained during compilation (useful for debugging too)
+Using a symbol table one can check basic semantic questions by associated a snippet of code with each production rule that would execute each time the parser reduces that prodcution. Examples:
+* Code that checks if a variable is declared prior to use 
+* Code that checks that each operator and it's operands are type-compatible
+Allowing arbitrary code in such code snippets provides flexibility
+This type of evaluation fits nicely with LR(1) parsing
+How is the symbol table populated?
+
+##### What information is stored in the symbol table?
+What items to enter in the symbol table?
+* Variable names
+* Defined constants 
+* Procedure and function names
+* Literal constants and strings
+* Source text labels
+* Compiler generated libraries
+What kind of information might the compiler need about each item?
+* Textual name
+* Data type
+* Declaring procedure
+* Storage information
+* Depending on the type of the object, the compiler may want to know list of fields (for structures), number of parameters and types (for functions, e.t.c)
+In practice, many different tables exist
+
+>[!Note]
+>Symbol table information is accessed frequently: hence, efficiency of access is critical
+
+In lexical analysis, we can detect symbols and variables, and add them directly to the symbol table. Along with that, we can also add all above mentioned items directly to the symbol table.
+
+#### Organising the symbol table
+1. Linear list: Simple approach, has no fixed size; but inefficient. A lookup may need to traverse through the entire list, this takes $O(n)$
+2. Binary tree: 
+	* An unbalanced tree would have similar behaviour as a linear list (this could arise if symbols are entered in a sorted order)
+	* A balanced tree (path length is roughly equal to all it's leaves) would take ($Olog_2n$) probes per lookup (worst-case). Techniques exist for dynamically rebalancing trees
+3. Hash tables: 
+	* Uses a hash function to map names into integers; this generates a table index to store information. Potentially $O(1)$, but needs:
+		* Inexpensive hash function, with good mapping properties and
+		* a policy to handle cases when several names map to the same single index
+
+#### Example of a Hash Table
+![[Pasted image 20230407022804.png]]
+#### Other Issues
+* Choosing a good hash function is of paramount importance:
+	* Split names into four-byte chunks, XOR the chunks together and take this number and modulo 2048 (this is the symbol table size)
+* Lexical Scoping:
+	* Many languages introduce independent name scopes:
+		* C, for instance, may have global, local, static(file) and block scopes
+		* Pascal: nested procedure and definitions
+		* C++, Java: Class inheritance, nested classes, packages, namespaces, etc.
+		* Namespaces allow two different entities to have the same name within the same scope: E.g. in Java, a class and a method can have the same name
+	* The problem:
+		* At point x, which declaration of variable y is current?
+		* Allocate and initialise a symbol table for each scope
+	* By far, easiest to have a single global namescope (but not most efficient), yet another trade off.
+
+
 
 
 
