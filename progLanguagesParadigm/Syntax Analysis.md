@@ -77,7 +77,7 @@ Like mentioned above, to deal with ambiguity we need to rewrite the grammar to a
 	* Pick a production (?) and try to match the input; if you fail then backtrack
 	* Essentially, we find a leftmost derivation for the input string (which we need to scan left-to-right)
 	* Some grammars are backtrack free (predictive parsing)
-2. Bottom-up parses:
+2. Bottom-up parser:
 	* Construct the tree for an input string, beginning at the leaves and working up towards the top (root)
 	* Bottom-up parsing, using again left-to-right scan of the input, tries to construct a rightmost derivation in reverse
 	* Can be automated and handle a large class of grammars
