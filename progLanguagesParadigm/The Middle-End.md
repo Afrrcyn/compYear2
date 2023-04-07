@@ -203,7 +203,80 @@ subtract
 // note that when multiply, it multiplies the first 2 elements on top of stack, should be similar to every other operator too
 ```
 
+#### Auxiliary Graph Representation
+1. Control-flow Graph (CFG): Models the way that the code trasnfers control as a result of conditional or loop statements.
+	* Node: A single basic block (= a maximal straight line of code)
+	* Edge: Transfer of control between basic blocks
+	* (Captures loops, if statements, case, goto)
+2. Data Dependence Graph: Encodes the flow of data
+	* Node: Program statement
+	* Edge: Connects two nodes if one uses the result of the other
+	* Useful in examining the legality of program transformations
+3. Call Graph: Shows dependences between procedures
+	* Useful for interprocedural analysis
 
+#### High-level Code Optimisations
+Once the intermediate representation is in place, the compiler may try to apply a series of optimising transformations
+Goal: Improve program performance:
+* This may also reduce size of code, power consumption, e.t.c.
+Issues:
+* Legality: Must preserve the meaning of program
+	* Externally observe meaning may be sufficient / may need flexibility
+* Benefit: Must improve performance on average or common cases
+	* Predicting program performance is often non-trivial
+* Compile-time cost justified: List of possible optimisations is huge
+	* Interprocedural optimisations (O4 (?))
 
+##### Optimising Transformations
+Finding an appropriate sequence of transformations is a major challenge: modern optimsers are structured as a series of passes:
+* Optimisation 1 is followed by optimisation 2, optimisation 2 is followed by optimisation 3, and so on...
+Transformations may improve program at:
+* Source level (algorithm specific)
+* IR Level (machine-independent transformations)
+* Target code (machine-dependent transformations)
+Some typical transformations:
+* Discover and propagate some constant value 
+* Remove unreachable/redundant computations
+* Encode a computation in some particularly efficient form
 
+#### Classification
+By scope:
+* Local or within a window of instructions(peephole (wtf))
+* Loop-level: On one or more loops or loop sets
+* Global: For an entire procedure (e.g. function, method, etc)
+* Interprocedural: Across multiple procedures or whole program 
+By machine information used:
+* Machine-independent (high-level)
+* Machine-dependent
+By effect on program structure:
+* Algebraic transformations(e.g. `x+0, x*1, 3*z*4,...`)
+* Reordering transformations (change the order of 2 computations)
+	* Loop transformations: loop-level reordering the transformations
+##### Some transformations:
+* Common subexpression elimination:
+	* Say for instance, `x+y` is redundant iff along every path from the procedure's entry it has been evaluated and it's constituent subexpressions (`x,y`) have not been redefined. In simpler words, assign the value of `x+y` to a variable and just use that variable again instead of calculating the sum again and again.
+* Copy propagation:
+	* After a 'copy' statement, `x=y`, trying to use `y` as much as possible (where instead could have used `x`, is this what is meant by here?)
+* Constant propagation: 
+	* Replace variables that have constant values with these values
+* Constant folding:
+	* Deduce a value that is a constant, and use the constant instead
+* Dead-code elimination:
+	* A value is computed but never used, or there is code in a branch never taken (may result after constant folding). Example unused/unaccessed variables (maybe?)
+* Reduction in strength:
+	* Replace an expensive operation with a cheaper operation
+* Loop-invariant code-motion:
+	* Detect statements inside a loop whose operands are constant or have all their definitions outside the loop - move out of the loop
+##### Examples
+![[Pasted image 20230407054300.png]]
+> [!info]
+> I think these are great examples
+
+#### Loop Transformations - Loop Unrolling
+* Change: `for(i=0;i<n;i++)` to `for(i=0;i<n-s+1;i+=s)` and replicate the loop body `s` times (changing also `i` as needed to `i+1, i+2, ...`). Will need an 'epilogue' if `s` does not divide `n`
+* Helps with low-level instruction scheduling, minimises loop overhead
+![[Pasted image 20230407054852.png]]
+
+### Summary
+![[Pasted image 20230407054938.png]]
 
