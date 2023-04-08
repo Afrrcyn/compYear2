@@ -225,3 +225,5 @@ Register allocation interferes with instruction scheduling:
 - If the latter before the former and register allocation has to spill registers, the whole (carefully done) schedule changes
 - The same can be said about instruction selection too
 Most of the active compiler research revolves around areas of optimisation in relation to middle/back-end. Trying to optimise in relation to new target platforms is always a big challenge
+
+![[Pasted image 20230408154505.png]]
