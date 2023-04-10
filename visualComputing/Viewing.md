@@ -1,3 +1,4 @@
+[[COMP27112]]
 The Camera Analogy
 1. Arrange the objects into the desired composition
 2. Position the camera and point it at the scene.

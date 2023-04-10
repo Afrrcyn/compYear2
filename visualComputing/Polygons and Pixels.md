@@ -1,14 +1,24 @@
+[[COMP27112]]
+
 Polygons are the most common building block for 3D graphics, with Triangles being the most commonly used.
+
+>[!Definition]
+>Mesh: Mesh refers to a collection of vertices, edges, and faces that define the shape of a 3D object.
 
 What is a polygon?
 - Many sided shape...
 - We can equally represent polygons via their vertices or edges, vertices are preferred.
 
+> Polygon is just the space that is bounded by the vertices
+
 OpenGL needs convex polygons, all it's interior angles are less than 180 degrees:
 
 ![[Pasted image 20230214081405.png|400]]
 
-A shape with more than 180 degrees angle is called concave. it we have a shape with more than 180 degree angle we will use an approach called ***Tessellation***
+A shape with more than 180 degrees angle is called concave. If we have a shape with more than 180 degree angle (like the one on the right, in the above picture) we will use an approach called ***Tessellation***
+
+> [!Definition]
+> Tessellation is the process of breaking down a 3D surface into smaller geometric shapes, such as triangles or quadrilaterals, to enable smoother and more detailed rendering of the surface.
 
 ![[Pasted image 20230214081728.png|500]]
 
@@ -16,6 +26,7 @@ So we introduce a couple more vertices on the edges of the shapes to ensure that
 
 ##### Surface Normal
 - The surface normal is a vector perpendicular to the plane of the polygon. We can use this to give a polygon a distinguishable front and back, and also to describe it's orientation in a 3D space.
+- The convention is that the surface normal comes out of the front of the polygon, and of course the other side will be the back
 - Orientation is an essential property used extensively in lighting calculations, collisions, culling, ...
 
 ![[Pasted image 20230214082045.png|500]]
@@ -28,7 +39,7 @@ For 2 vectors, their cross product is a third vector perpendicular to both of th
 
 Finding the surface normal:
 1. Choose a pair of sequential edges $E_1$ and $E_2$ and compute their vectors
-2.  Invert the direction of the first so now they emanate from their shared vertex. (does this makes sense? - if not, look at diagram and see that inverted $E_1$ starts at same vertex as $E_2$)
+2.  Invert the direction of the first so now they emanate (emerge) from their shared vertex. (does this makes sense? - if not, look at diagram and see that inverted $E_1$ starts at same vertex as $E_2$)
 3. Their Cross product gives the Surface Normal $N$, where $N = E_1 \times -E_2$ 
 4. We then almost always have to normalise $N$ (make it's length 1)
 
@@ -91,7 +102,7 @@ So we have to scan convert a line:
 
 ![[Pasted image 20230214095958.png|400]]
 
-The blue lines are not straight simply because we're working in the digital world, as we can only represent them with pixels and are limited and so the line is approximated.
+The blue lines are not straight simply because we're working in the digital world, as we can only represent them with pixels and are limited and so the line is approximated, like everything in computer graphics is approximated.
 
 Scan Conversion is solved by Bresenham's Algorithm, which starts at one end of the line, and you look at how the the line should have as you increase the $x$ value by 1 (as seen below!)
 
@@ -107,18 +118,20 @@ So here are the more formal steps:
 5. Need to swap $x$ and $y$ according to gradient of the line.
 6. Bresenham (1965) developed a fast algorithm using only integer arithmetic that is still used today!
 
-So we scan converted a line, how do you scan convert a polygon is the nest question?
+So we scan converted a line, how do you scan convert a polygon is the next question?
 
 - There are many approaches... we'll look at 2.
 - The polygon has been transformed by the viewing pipeline, so we know it's  $(x, y, z)$ vertex coordinates  in screen space.
 - The $(x, y)$ coordinates corresponds to a pixel position.
 - The $z$ coordinate is a measure of the vertex's distance from the eye (or camera), we won't use this information yet!
 
-1. To scan convert a triangle, we scan convert the edges, and then after finishing the edges, fill in the dots!
+##### Approach 1
+To scan convert a triangle, we scan convert the edges, and then after finishing the edges, fill in the dots!
 
 Yeah, this approach above is naïve and not used...
 
-2. We're gonna look at the sweep-line algorithm
+##### Approach 2
+We're gonna look at the sweep-line algorithm
 
 ![[Pasted image 20230214101713.png|400]]
 
@@ -128,7 +141,7 @@ What we can also do is find out how much the $x$ coordinate increments for each 
 ##### Hidden Surface Removal
 - Viewing the world from a particular viewpoint, which parts of the world can be seen and which parts can we not see, because other objects block them
 - There are 2 fundamental approaches to solving this problem.
-	- Work in 3D world space, we can work it out geometrically in 3D and work it out.
+	- Work in 3D world space, we can work it out geometrically in 3D and work it out. (?)p
 	- Work in a 2D display space, during scan-conversion, whenever we generate a pixel $P$ we determine whether some other 3D objects nearer to the also also maps to $P$, this is now the standard approach.
 
 ###### Z-buffer (aka Depth-Buffer)
@@ -157,7 +170,8 @@ Any object can be represented using a structured polygon, it needs to maintain s
 - A model can be made up of Object(s)
 	- Each Object is made up of Surface(s)
 		- Each Surface is made up of Polygon(s)
-			- Each Polygon is made up of Edges/Vertices
+			- Each Polygon is made up of Edge(s)
+						   - Each Edge is made up of pairs of Vertices
 
 General Polygon Mesh:
 - Made up of Surfaces and Polygons and Edges... but we want to have some sort of generalised way of representing general shaped objects and to do that we need:
@@ -166,7 +180,7 @@ General Polygon Mesh:
 
 ![[Pasted image 20230214135840.png|300]]
 
-So our mesh data structure has 3 lists, ==A list of all the nodes== in our data structure, ==a list of all the edges== in out data structure (edges are just defined by 2 vertices - so it indexes within the list of vertices) and thirdly we have a face list, then there's ==a list of faces==, each face is defined by a list of 3 edges (dealing with triangles).
+So our mesh data structure has 3 lists, ==A list of all the nodes== in our data structure, ==a list of all the edges== in our data structure (edges are just defined by 2 vertices - so it indexes within the list of vertices) and thirdly we have a face list, then there's ==a list of faces==, each face is defined by a list of 3 edges (dealing with triangles).
 
 ![[Pasted image 20230214141730.png|450]]
 
@@ -177,5 +191,5 @@ obj file formats:
 - List of Vertex normals: $\bf vn$ $x\ y\ z$
 - List of vertex texture coordinates: $\bf vt$ $s\ t$
 - List of faces: $\bf f$ $v1/vt1/vn1\ \ v2/vt2/vn2\ ...$
-- List of groups $\bf g$ $f1\ f2\ f3$
+- List of groups $\bf g$ $f1\ f2\ f3$ which is a group of faces (?)
 
