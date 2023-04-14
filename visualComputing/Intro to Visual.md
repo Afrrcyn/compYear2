@@ -141,3 +141,5 @@ When taking a greyscale, we we take the average of the RGB components:
 ![[Pasted image 20230307101714.png|400]]
 
 But we want some sort of difference... So we should use some sort of weighted average to get a difference shading so we can differentiate between all 3 colours.
+
+![[Pasted image 20230414094823.png]]
