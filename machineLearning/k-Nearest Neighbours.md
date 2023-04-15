@@ -1,4 +1,4 @@
-# k-Nearest Neighbours I
+[[COMP24112]]
 
 ## History
 

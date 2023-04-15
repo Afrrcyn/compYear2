@@ -1,6 +1,4 @@
-# Machine Learning Basics
-
-# Machine Learning Basics I
+[[COMP24112]]
 
 ### What can Machine Learning do?
 

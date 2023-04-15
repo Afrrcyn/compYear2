@@ -1,6 +1,6 @@
+[[COMP24112]]
 
 # Machine Learning Models I
-
 
 <aside>
 💡 Recall the “Data + Model” Strategy
