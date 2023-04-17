@@ -6,7 +6,7 @@ Let's revisit the Data + Model Strategy in the context of supervised learning.
 
 ![[Pasted image 20230227080311.png|400]]
 
-We have our training data $D_{tr}$, We utilise it to make a prediction function. And we do that by optimising the parameters $\theta$ and returns the output for query $x$.
+We have our training data $D_{tr}$, we utilise it to make a prediction function. And we do that by optimising the parameters $\theta$ and returns the output for query $x$.
 
 For parameters $\theta$ some need to to be optimised and others are hyper-parameters and needed to be selected.
 
@@ -14,8 +14,9 @@ After training, we have our final model.
 
 ![[Pasted image 20230227080509.png|300]]
 
-The process of using a trained model on unseen data (query or testing data) is called inference.
+The process of using a trained model on unseen data (query or testing data) is called ==inference==.
 
+#### Loss Functions
 Loss functions are essential in training and are computed using the training data - it helps to decide how good our model parameters are. (other names include error, cost, objective function)
 
 When training we need to pick a loss function $O(\theta)$ then:
@@ -33,7 +34,7 @@ Losses for Training Regression Models
 - Some regression losses are simplified versions of RSME using training sample.
 - The prediction for each training sample is computed by $\hat y_i = f(\theta, x_i)$
 
-![[Pasted image 20230227081039.png]]
+![[Pasted image 20230227081039.png|500]]
 
 Where $N$ is the number of samples.
 
@@ -57,7 +58,12 @@ Regularised LLS
 
 ![[Pasted image 20230227081824.png|600]]
 
-We add a term, so for a linear term it's the transpose of the weight vector multiplied by the weight vector. It helps to prevent overfitting to the training data. however when $\lambda$ is to large it leads to under-fitting. SO $\lambda$ is the hyper-parameter.
+We add a term, so for a linear term it's the transpose of the weight vector multiplied by the weight vector. It helps to prevent ==overfitting== to the training data. however when $\lambda$ is to large it leads to under-fitting. SO $\lambda$ is the hyper-parameter.
+
+>[!Definition]
+>Overfitting in data science refers to a situation where a machine learning model is too complex and fits the training data too closely, to the extent that it starts to capture noise and irrelevant patterns in the data. As a result, an overfit model may perform very well on the training data but perform poorly on new, unseen data, since it has learned to memorize the training data rather than to generalize to new situations. Also known as overlearning or overtraining.
+
+##### Why do we want regularisation?
 
 ![[Pasted image 20230227082158.png|700]]
 Over-fitting: fits too closely to a particular set of data and may therefore fail to fit new data.
@@ -89,7 +95,6 @@ Example with Linear Regression
 ##### Non-Probabilistic
 
 ##### Sum of Squares
-
 You can train a discriminant function by minimising the sum of squares lose, this results in the least square approach for classification.
 
 ![[Pasted image 20230227084025.png|500]]
@@ -137,7 +142,7 @@ Example:
 
 ### Probabilistic
 - Cross entropy loss based on class posterior $$p(\text{class }k\ | \ x)$$
-Cross Entropy measures distance between probability distributions. It's discrete version be used to examine the distance between predicted class probabilities (posterior) and the true class probabilities.
+Cross Entropy measures distance between probability distributions. It's discrete version can be used to examine the distance between predicted class probabilities (posterior) and the true class probabilities.
 
 ![[Pasted image 20230227090725.png|500]]
 
@@ -147,6 +152,7 @@ where $p$ is the true class probability and the $q$ is the predicted class proba
 ##### Cross Entropy Loss
 
 ![[Pasted image 20230227090849.png|500]]
+>Note that `if y=0, x is from class 0, which means p(1)=05 and p(0) = 100%` (typo)
 
 We apply $0/1$ label coding.
 
@@ -160,8 +166,7 @@ Different models give you different ways to formulate $p(c_k|x)$
 
 Logistic Regression - linear classification model trained using cross-entropy loss.
 
-Classification Losses based on Likelihood
-
+##### Classification Losses based on Likelihood
 One way to train the model is to maximise the likelihood (or log likelihood) function.
 
 ![[Pasted image 20230227094721.png|500]]
@@ -176,7 +181,6 @@ For multi-class classification we use categorical distribution - almost like fli
 
 Example:
 ![[Pasted image 20230227113144.png|500]]
-
 Yes because the softmax and sigmoid gives us an output that is between $0$ and $1$. And all outputs sum to $1$!
 
 ![[Pasted image 20230227114711.png|500]]
