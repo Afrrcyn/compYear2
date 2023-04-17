@@ -1,3 +1,4 @@
+[[COMP24112]]
 
 ![[Pasted image 20230306075643.png|500]]
 Revisit the pipeline 
@@ -10,6 +11,7 @@ Revisit the pipeline
 ![[Pasted image 20230306080113.png|500]]
 
 This makes sense, thinking of when we have $\frac{\text d y}{\text d x}$, thus the solution must satisfy the partial derivative.
+The vector of all the fractions is called a ==gradient vector== 
 
 Let's look at a case study:
 
