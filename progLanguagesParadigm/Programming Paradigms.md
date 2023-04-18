@@ -19,10 +19,8 @@ Each programming language belongs to (or implements) one or more programming par
 Some paradigms are better suited than others to solve a given kind of software engineering problem
 
 - Paradigm Example
-    
     **Example**: Multiplying each element of an array by 2 in JavaScript
-    
-    1. Using Imperative Paradigm
+    1. Using ==Imperative== Paradigm
         
         <aside>
         💡 Imperative programming paradigm: Works by changing program state through assignment statements. Performs step by step task by changing state
@@ -43,32 +41,30 @@ Some paradigms are better suited than others to solve a given kind of software e
         console.log(`Result: ${res}`);
         ```
         
-    2. Using Declarative Paradigm
-        
+    2. Using ==Declarative== Paradigm
         <aside>
         💡 Style of building programs that expresses logic of computation without talking about its control flow.
         
         </aside>
         
         ```jsx
-        function mult_by_two_declarative (array) {
-        	return array.map((item) => item*2)
-        }
-        
-        array = [1,2,3]
-        res = mult_by_two_declarative(array)
-        console.log(`Result: ${res}`);
+		function mult_by_two_declarative (array) {
+			return array.map((item) => item*2)
+		}
+		
+		array = [1,2,3]
+		res = mult_by_two_declarative(array)
+		console.log(`Result: ${res}`);
         ```
-        
     
     Results are the same despite the difference in describing computations
     
     As seen that Declarative paradigm takes fewer lines of codes than Imperative, we can say that Declarative paradigm is more efficient and elegant, even though it can be a little harder to understand.
-    
+
 
 Paradigm defines how the programmer describes the program computations
 
-- Can be sequences of statements, executed sequentially or in paraller
+- Can be sequences of statements, executed sequentially or in parallel
 - Can also be how the result should look like
 - Can be divided into functions
 
@@ -79,7 +75,7 @@ Paradigm also defines how the programmer descries the data computations are appl
 - Local / global variables
 - etc
 
-How to pick a programming paradigm?
+##### How to pick a programming paradigm?
 
 Choosing a language to solve a given software engineering problem implicitly selects one (or more) paradigm(s)
 
@@ -100,17 +96,12 @@ High Level Programming Paradigms and Sub-Paradigms
 - Imperative Programming Paradigm
     
     Programmer describes sequences of statements manipulating the program state, basically like a cooking recipe
-    
     e.g. describe how to obtain the computation results
-    
     Assembly language is imperative even though it is a low level language. It has very low memory footprints (which is an advantage)
     
     Paradigms:
-    
     1. Structured Programming
-        
         Programmer uses advanced **control flow operations:**
-        
         - Loops, conditionals, procedures
         - Compared to pure imperative, easier to describe/reason about complex/large programs
     2. Object Oriented Programming
@@ -127,9 +118,7 @@ High Level Programming Paradigms and Sub-Paradigms
         - Can sometimes be overkill for small programs
     3. Concurrent Programming
         - Can use threads/processes to describe interleaving and/or parallel computation flows
-            
             ![Untitled](Week%201%2039bb2480db9342e2b1f84f70dd2c5b21/Untitled%201.png)
-            
         - Many imperative languages provide ways to exploit concurrency:
             - Shared-memory threads / processes in C/C++, Java, Python
             - Message passing (MPI) in C/C++/FORTRAN
@@ -137,16 +126,12 @@ High Level Programming Paradigms and Sub-Paradigms
             - GPU programming with CUDA
         - Use cases: HPC, distributed computing, graphic processing, etc
 - Declarative Programming Paradigm
-    
     The programmer describes the meaning/result of computations
-    
     ![Untitled](Week%201%2039bb2480db9342e2b1f84f70dd2c5b21/Untitled%202.png)
     
     Declarative Programming Paradigm has:
-    
     - High level of abstraction
     - Code can easily become convoluted
-        
         <aside>
         💡 Convoluted: Very complicated or involved with many details, complex.
         
@@ -156,10 +141,8 @@ High Level Programming Paradigms and Sub-Paradigms
     - Usage: document rendering, structured data storage and manipulation
     
     Paradigms:
-    
     1. Functional
         - Calling and composing functions to describe the program
-            
             ![Untitled](Week%201%2039bb2480db9342e2b1f84f70dd2c5b21/Untitled%203.png)
             
         - First-class / higher-order functions
