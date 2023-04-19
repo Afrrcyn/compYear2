@@ -1026,7 +1026,7 @@ printf("GREEN was assigned: %d\n", GREEN);
 printf("RED was assigned: %d\n", RED);
 ```
 
-Enumerations can be `typedefd`
+Enumerations can be `typedef`
 
 ```c
 enum {
