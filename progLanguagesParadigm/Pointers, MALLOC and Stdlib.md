@@ -53,10 +53,15 @@ You can declare a pointer like such: `<type> *name = &variable`, here `&` will r
 A pointer itself is a variable with an address so you can have a pointer pointing to it...
 
 ```c
-int val = 42;
-int *ptr1 = &val;
-int **ptr2 = &ptr1;
-int ***ptr3 = &ptr2;
+int value = 42;         // integer
+    int *ptr1 = &value;     // pointer of integer
+    int **ptr2 = &ptr1;     // pointer of pointer of integer
+    int ***ptr3 = &ptr2;    // pointer of pointer of pointer of integer
+    
+    printf("ptr1: %p, *ptr1: %d\n", ptr1, *ptr1); // ptr1: 0x7fff450f8d1c, *ptr1: 42
+    printf("ptr2: %p, *ptr2: %p, **ptr2: %d\n", ptr2, *ptr2, **ptr2); // ptr2: 0x7fff450f8d20, *ptr2: 0x7fff450f8d1c, **ptr2: 42
+    printf("ptr3: %p, *ptr3: %p, **ptr3: %p, ***ptr3: %d\n", ptr3, *ptr3,
+            **ptr3, ***ptr3); // ptr3: 0x7fff450f8d28, *ptr3: 0x7fff450f8d20, **ptr3: 0x7fff450f8d1c, ***ptr3: 42
 ```
 where the type of `**ptr2` is a pointer to a pointer of int.
 
@@ -73,7 +78,7 @@ if (heap_array == NULL) return -1;
 free(heap_array)
 ```
 
-`malloc()` allocates a chunk of memory on the heap and returns a pointer to it. It will return `NULL (0)` if the allocation fails, so always check the return type... And once you're done, don't forget to free the variable!
+`malloc()` allocates a chunk of memory on the heap and returns a pointer to it. It will return `NULL (0)` if the allocation fails, so always check the return type... And once you're done, don't forget to free the variable! If the memory is not freed, it will remain allocated even after the program has finished executing, leading to memory leaks and potentially causing the program to consume an excessive amount of memory.
 
 For a multi-dimensional array, you'll have to malloc the first dimension and then for each index in the first dimension, malloc the second dimension for that first...
 
@@ -91,12 +96,12 @@ But the key thing here to remember is that the first dimension is not a standard
 ### Stdlib
 
 ##### String
-We have to standard copy functions 
+We have two standard copy functions 
 ```c
 char *strcpy(char *dest, const char *src);
 char *strncpy(char *dest, const char *src, size_t n);
 ```
-The second one being better because what happens if the string you're copying to is smaller than the string you're copying? So use `strncpy()` where you can!
+The second one being better because what happens if the string you're copying to is smaller than the string you're copying? So use `strncpy()` where you can! In `strncpy()` you can put the size of the destination buffer to avoid errors
 
 We also have functions for concatenation
 ```c
@@ -121,7 +126,9 @@ size_t strlen(const char *s);
 int strcmp(const char *s1, const char *s2);
 ```
 
+![[Pasted image 20230421212427.png|450]]
 where `strcmp` may return `0`, if the strings are equal.
+> Negative number if s1 is before s2 in lexicographical order, and positive number if s1 is after s2 in the lexicographical order
 
 ##### Console Input
 
@@ -155,7 +162,7 @@ These do exactly what you think and you can find more at this link: [here x](htt
 
 ```c
 unsigned int sleep(unsigned int seconds);
-int usleep(useconds_t usec);
+int usleep(useconds_t usec); // microseconds
 
 // usage:
 sleep(100);
@@ -187,7 +194,7 @@ for(int i=0; i<1000000000; i++);
 gettimeofday(&stop, NULL);
 timersub(&stop, &start, &elapsed);
 
-printf("Busy loop took %lu.%06lu seconds\n", elapsed.tv_sec, elapsed.tv_usec);
+printf("Busy loop took %lu.%06lu seconds\n", elapsed.tv_sec, elapsed.tv_usec); // 6 leading zeroesz
 ```
 
 Where we include `#include <sys/time.h>` to use the function...
@@ -404,4 +411,4 @@ int hi;
 
 int main(int argc, char **argv) {...}
 ```
-And all global variables are stored in static memory, all local variables that are not defined via `malloc` are stored in the stack and anything defined by `malloc` is stored in the heap. And *i think*, all pointers are stored on the stack.
+And all global variables are stored in ==static memory==, all local variables that are not defined via `malloc` are stored in the stack and anything defined by `malloc` is stored in the ==heap==. And *i think*, all pointers are stored on the stack.
