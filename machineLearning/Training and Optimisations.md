@@ -154,7 +154,7 @@ See how the value of $\eta$ will determine whether we find the minimum - however
 
 ![[Pasted image 20230306094803.png|500]]
 
-![[Pasted image 20230306095020.png|500]]
+![[Pasted image 20230306095020.png|600]]
 
 Stochastic simply uses one training sample as opposed to all training samples...
 
