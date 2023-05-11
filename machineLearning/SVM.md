@@ -2,13 +2,15 @@
 
 (Support Vector Machines)
 
-In a 2D space we use a straight line to separate data and in a 3D space we use a place to do the same. And when there are more than 3 Dimensions we call it a hyperplane.
+In a 2D space we use a straight line to separate data and in a 3D space we use a plane to do the same. And when there are more than 3 Dimensions we call it a hyperplane.
 
 You can calculate the distance between any arbitrary point in the space and the hyperplane.. $$r = \frac{\text{w}^T \text{x} + b}{\sqrt{\sum^d _{i=1} w^2 _i} } $$ where the equation of the hyperplane is: $$\text{w}^T\text{x} + b = 0$$ and $r$ is the distance from a point $\text{x}$, and where $r$ is negative or positive depends on which side of the hyperplane $\text{x}$ is on...
 
 ![[Pasted image 20230417085609.png|500]]
 
-And so the distance from the origin to the line is $$\frac{b}{||\text{w}||_2}$$ where $$||\text{w}||_2 = \sqrt{\sum^d _{i=1} w^2 _i}$$
+And so the distance from the origin to the line is :$$\frac{b}{||\text{w}||_2}$$ (We do not have $w^Tx$ here because from the origin that equals to 0 so we are just left with $b$)
+ where $$||\text{w}||_2 = \sqrt{\sum^d _{i=1} w^2 _i}$$
+$b$: Bias parameter
 
 ##### Hyperplanes
 Now let's focus on 2 hyperplanes, say: $$\cases{\text{w}^T\text{x}+b = 1 \\ \text{w}^T\text{x} + b = -1}$$
@@ -26,7 +28,7 @@ And the region bounded by these 2 hyperplanes is called the separation "margin" 
 
 So the two hyperplanes actually prevent training data points from falling into the margin...
 
-So what is the core idea behind SVM - simply to find an optimal hyperplane to separate the two classes of data points with the widest margin.
+So what is the core idea behind SVM - simply to find an optimal hyperplane to separate the two classes of data points with the ==widest margin==.
 
 >[!note] We are after the widest separation margin!
 
@@ -65,7 +67,7 @@ However, what if the data is non-separable?
 
 ![[Pasted image 20230417112348.png|300]]
 
-hard-margin will struggle with this and so we use soft-margin
+hard-margin will struggle with this and so we use ==soft-margin==
 
 ##### Soft-Margin SVM
 - We have slack variables $\varepsilon_i \geq 0$ where ($i = 1,\ 2,\ ...,\ N$) each of which measures the deviation of the i-th point from the ideal situation, 
@@ -77,6 +79,7 @@ We don't push all the points to stay out of the margin anymore
 In addition to maximising the margin - as before we also need to keep all slack variables $\varepsilon_i$ as small as possible to minimise the classification errors.
 
 ![[Pasted image 20230417114548.png|500]]
+Note the difference here and the hard margin? We use a regularisation variable in soft margin whereas in hard-margin it was just $\lambda \ge 0$ (so lambda had to be positive)
 
 But, there's another way to relax the hard margin, we can instead use hinge-loss:
 
@@ -121,6 +124,8 @@ Called ROC analysis.
 - For each threshold value, we can collect a pair of measurements
 	- (1 - specificity, sensitivity (basically recall))
 	- or False Positive Rate and True Positive Rate
+Sensitivity is recall (or how good your model is at identifying positive samples)
+Specificity is (how good your model is at identifying negative samples)
 
 - Receiver Operating Characteristics (ROC) curve is a graphical plot that illustrates pairs of the above collected measures as the decision threshold varies.
 - 1 - specificity on the $x$-axis and sensitivity on the $y$-axis
