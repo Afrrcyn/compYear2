@@ -331,7 +331,7 @@ $P(x)$ is the marginal probability of data x
 
 </aside>
 
-### Logistic Regression
+**### Logistic Re**gression
 
 ![Note that the exponent to $e$ which is a linear model, can be changed to a neural network](Machine%20Learning%20Models%207b16869819a54e158af34376e4831aea/Untitled%2033.png)
 

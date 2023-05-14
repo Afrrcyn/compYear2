@@ -2,7 +2,7 @@
 
 Clustering (Also known as cluster analysis) is the task of grouping a set of objects so that objects in the same group are more similar to each other than to those in other groups. We call each group a cluster
 
-Clustering is unsupervised learning - there are no pre-defined classes and training data.
+Clustering is ==unsupervised== learning - there are no pre-defined classes and training data.
 
 Okay but what is *similar?*
 - The objects are usually characterised by a set of features corresponding to a set of data points in a high-dimensional space.
@@ -94,7 +94,7 @@ After we have done this:
 
 ![[Pasted image 20230424093530.png|500]]
 
-So find a new centre for the cluster centre by averaging the points values in that cluster, and no we simply repeat steps 1 and 2, to update cluster membership.
+So find a new centre for the cluster centre by averaging the points values in that cluster, and now we simply repeat steps 1 and 2, to update cluster membership.
 
 ![[Pasted image 20230424093739.png|500]]
 
@@ -147,8 +147,6 @@ On this course we will focus on the agglomerate algorithm, let's look at an exam
 ![[Pasted image 20230424111408.png|300]]
 
 
-
-
 ### How to validate whether the clustering results make sense... (Cluster Validation)
 
 - Internal criteria (indexes) validates based on common sense without using external information
@@ -191,4 +189,5 @@ Challenges of comparing two partitions
 
 >[!info] Life time of clusters
 >Get equation or something
+>Difference between that it is created and merged
 

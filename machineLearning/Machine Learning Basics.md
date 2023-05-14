@@ -142,7 +142,7 @@ System training is the process of finding the best model parameters by minimisin
 ![Untitled](Machine%20Learning%20Basics%207860e57d2ca7496991e7b403fa00bd8a/Untitled%203.png)
 
 <aside>
-💡 Lost function: A loss function, is a function that measures the difference between the predicted output of a model and the actual output. The goal of training a machine learning model is to minimize the value of the loss function, so that the predicted output of the model is as close as possible to the actual output.
+💡 Loss function: A loss function, is a function that measures the difference between the predicted output of a model and the actual output. The goal of training a machine learning model is to minimize the value of the loss function, so that the predicted output of the model is as close as possible to the actual output.
 In simpler terms, a loss function is a measure of how well a model is doing in predicting the output, and the goal is to minimize the loss.
 
 </aside>

@@ -86,7 +86,7 @@ It's training is based on backpropagation and stochastic gradient descent.
 
 Neuron in layer $h$ is only connected to a small portion of the previous layer $h-1$ and this is called local connectivity!
 
-- Weight Sharing: One same filter of the size of the local region slides over all spatial locations. - so basically when we calculate the output for the single neuron in layer $h$ all the neurons in that same layer should use the same weights.
+- ==Weight Sharing==: One same filter of the size of the local region slides over all spatial locations. - so basically when we calculate the output for the single neuron in layer $h$ all the neurons in that same layer should use the same weights.
 
 ![[Pasted image 20230501114152.png|600]]
 
