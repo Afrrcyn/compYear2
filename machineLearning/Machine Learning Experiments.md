@@ -1,3 +1,5 @@
+[[COMP24112]]
+
 >[!warning] Question for lecture
 >We talk about, for k-fold CV, when we have a high number for $k$ it often leads to high variance, is this not the issue with Leave One Out then?
 
@@ -111,7 +113,7 @@ MAE is very similar to RMSE, except it's not squaring but rather getting the abs
 $$\text{MAPE} = \frac{1}{nm}\sum^n _{i=1} \sum^m _{j =1} \frac{\big|y_{ij} - \hat y_{ij}\big|}{\big|y_{ij}\big|}$$
 For a single output case: $$\text{MAPE} = \frac{1}{n}\sum^n _{i=1}  \frac{\big|y_{i} - \hat y_{i}\big|}{\big|y_{i}\big|}$$
 ==Coefficient of Determination== $(R^2)$
-$$R^2 = 1 - \frac{\sum^n _{i=1} (y_i - \hat y_i)^2}{\sum^n _{i=1} (y_i - \bar y)} = 1 - \frac{\text{RMSE}^2}{\sum^n _{i=1} (y_i - \frac{1}{n} \sum^n _{j=1}y_j)}$$
+$$R^2 = 1 - \frac{\sum^n _{i=1} (y_i - \hat y_i)^2}{\sum^n _{i=1} (y_i - \bar y)^2} = 1 - \frac{\text{RMSE}^2}{\sum^n _{i=1} (y_i - \frac{1}{n} \sum^n _{j=1}y_j)^2}$$
 >[!note] Please Note
 >The second equation is just showing that the numerator is the $\text{RMSE}$ squared and it's showing that $\bar y$ from the denominator in the first equation is simply the mean of all the $y$ values
 

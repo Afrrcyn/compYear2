@@ -113,7 +113,7 @@ Key stages in building a machine learning system:
 
 1. Model Construction
     - To prepare experience (E) in proper data format
-    - To characterise a task (T) by a parametric model
+    - To characterise a task (T) by a ==parametric== model
     - To characterise a performance metric (P) by an objective function
 2. Training
     - To determine the model through optimising the objective function

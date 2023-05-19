@@ -67,7 +67,7 @@ Question, knowing the distance measure between two data points, how do we measur
 
 ##### Example
 
-![[Pasted image 20230424092219.png|500]]
+![[Pasted image 20230424092219.png|600]]
 
 
 ##### K-means clustering
