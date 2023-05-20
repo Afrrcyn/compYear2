@@ -20,7 +20,7 @@ All of these are functions that take functions as inputs!
 `copy_if` is equivalent to a FP `filter`
 and `reduce` a `fold`
 
-### lambda
+### Lambda
 
 We also have Lambda Expressions now!
 `[capture](params) -> return_type { body }`
@@ -209,11 +209,13 @@ P.2: Write in ISO Standard C++
 P.3: Express intent  
 P.4: Ideally, a program should be statically type safe  
 P.5: Prefer compile-time checking to run-time checking  
-P.6: What cannot be checked at compile time should be checkable at run time P.7: Catch run-time errors early
+P.6: What cannot be checked at compile time should be checkable at run time 
+P.7: Catch run-time errors early
 P.8: Don’t leak any resources  
 P.9: Don’t waste time or space  
 P.10: Prefer immutable data to mutable data  
-P.11: Encapsulate messy constructs, rather than spreading through the code P.12: Use supporting tools as appropriate  
+P.11: Encapsulate messy constructs, rather than spreading through the code 
+P.12: Use supporting tools as appropriate  
 P.13: Use support libraries as appropriate
 F.4: If a function might have to be evaluated at compile time, declare it constexpr  
 F.21: To return multiple "out" values, prefer returning a struct or tuple  
