@@ -1,3 +1,5 @@
+[[COMP26020]]
+
 What is functional programming?
 - treat functions like any other data
 	- define without naming

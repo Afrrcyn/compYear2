@@ -1,3 +1,5 @@
+[[COMP26020]]
+
 Syntax analysis, also known as ==parsing==
 ### Introduction
 ![[Pasted image 20230406011707.png]]

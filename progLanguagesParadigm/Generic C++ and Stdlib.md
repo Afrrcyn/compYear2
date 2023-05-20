@@ -1,3 +1,5 @@
+[[COMP26020]]
+
 We can express algorithms and data structures in terms of generic types and those templates can be instantiated for specific types at compile time - instead of wiring specific algorithms for all types - you can already see why this is cleaner.
 
 ```cpp
