@@ -162,15 +162,12 @@ Order of the front-end is as shown in the graph, however order of the back-end i
 ## Lexical Analysis (Scanning)
 
 Reads characters in the source program and groups them into words (basic unit of syntax)
-
 Produces words and recognises what sort they are.
-
 The output is called *token* and is a pair of the form `<type, lexeme>` or `<token_class, attribute>`
 
 For example, a = b + c becomes `<id, a> <=,> <id,b> <+,> <id,c>`
 
 > Notice how the `lexeme` or `attribute` is empty for mathematical symbols
-> 
 
 Needs to record each id attribute: keep a **symbol table**
 
@@ -214,7 +211,7 @@ ASTs are one form of IR
 
 Once we terminate the syntax analysis, we get an abstract syntax tree. We get rid of the extra symbol we introduced in order to find out that the expression is syntactically correct.
 
-The following is an AST for:  `b * b - 4 * a - c`
+The following is an AST for:  `b * b - 4 * a * c`
 
 ![Untitled](Introduction%20to%20Compilation%2050d25506368e443b9aa55d08b53c0109/Untitled%206.png)
 
@@ -238,12 +235,12 @@ Translate language-specific constructs in the AST into more general constructs
 
 A criterion for the level of ‘generality’: it should be straightforward to generate the target code from the intermediate representation chosen.
 
-Example of a form of IR (3-address code) for `b * b - 4 * a - c`:
+Example of a form of IR (3-address code) for `b * b - 4 * a * c`:
 
 ![Untitled](Introduction%20to%20Compilation%2050d25506368e443b9aa55d08b53c0109/Untitled%207.png)
 
 Note: 3-address code means one operand and at-most three operators
-
+ 
 ```c
 <operand> = <operator> + <operator>
 ```

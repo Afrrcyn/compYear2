@@ -8,8 +8,8 @@ In C we can manually use `malloc` and `free`, but this has it's own problems...
 For Java, it has a 'garbage collector' which solves these problems but at the cost of efficiency...
 
 - and in Java we can still get Null Pointer Exceptions and so there are ==still clearly some memory management issues==.. 
-- And these occur when two variables refer tot he same data value - called ==aliasing==
-- One variable can be used to modify the data in a way which is unexpected fro the intended use of the other.
+- And these occur when two variables refer to the same data value - called ==aliasing==
+- One variable can be used to modify the data in a way which is unexpected for the intended use of the other.
 
 Rust takes it's own approach, where the compiler takes charge and ensures this never happens - BUT checking whether a C program has a memory fault is uncomputable..? Well, Rust ensures that the programmer has to code in a restricted way with annotations - and these restrictions are known as ==Rust's Ownership System==
 

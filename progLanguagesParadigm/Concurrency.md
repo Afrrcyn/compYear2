@@ -122,7 +122,7 @@ FOr Async - the software needs to handle when a message is not received...
 - For threads we have mutual exclusion but it's tedious and hard as we have to manually mark all critical sections and it's easy to get wrong.
 - Message passing is tedious and adds a lot of overhead...
 High level concurrency bugs are still possible 
-- Deadlocks - cycle of processes all wait for the nest process in the cycle to leave a critical section.
+- Deadlocks - cycle of processes all wait for the next process in the cycle to leave a critical section.
 - Livelocks - cycle of processes all try to enter a critical section but they all fail
 - Starvation - processes cannot progress, waiting forever to enter a critical section.
 

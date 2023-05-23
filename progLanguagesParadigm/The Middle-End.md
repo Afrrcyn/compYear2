@@ -206,7 +206,7 @@ subtract
 ```
 
 #### Auxiliary Graph Representation
-1. Control-flow Graph (CFG): Models the way that the code trasnfers control as a result of conditional or loop statements.
+1. Control-flow Graph (CFG): Models the way that the code transfers control as a result of conditional or loop statements.
 	* Node: A single basic block (= a maximal straight line of code)
 	* Edge: Transfer of control between basic blocks
 	* (Captures loops, if statements, case, goto)

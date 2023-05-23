@@ -137,7 +137,7 @@ Example (see below):
 ![[Pasted image 20230405070711.png]]
 Try understanding the diagram carefully:
 So, look at $\epsilon-closure(3)$, where 3 is our starting state or $s_i$. How far can you go with $\epsilon$ with starting point at 3? we can go from 3 to 4 to 7 and that is it. Hence $\epsilon-closure(3) = \{3,4,7\}$
-Similarly for 10, we get $\epsilon-closure(3) = \{3,4,7, 10\}$
+Similarly for 10, we get $\epsilon-closure(3,10) = \{3,4,7, 10\}$
 Next, for $move(\{3,10\}, a)$, we start from {3,10} moving it to where we see an $a$. We see an $a$ that leads us to 8, hence there we get our move function.
 
 The algorithm (subset construction):
@@ -182,7 +182,7 @@ However, table-driven recognisers can waste a lot of effort, why? In reality, pr
 
 #### Direct coding from the transition table
 > [!Recall]
-> $Regisiter -> r \ digit \ digit^*$
+> $Register -> r \ digit \ digit^*$
 
 The following bundles together transition table and code:
 ![[Pasted image 20230405225552.png]]
