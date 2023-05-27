@@ -16,7 +16,7 @@ And another reason is how we store these properties as well.
 - RGB is 3 bytes per pixel
 Would we need to represent a pixel with anything other than these two data types?
 
-When we perform gray-scaling and perform a binary thresholding, pixels become either black or white and so you only need 1 bit per pixel! And so a *Portable Bit Map* formats eight pixels into one byte.
+When we perform gray-scaling and perform a binary thresholding, pixels become either black or white and so you only need 1 bit per pixel! And so a ==*Portable Bit Map*== formats eight pixels into one byte.
 
 Notice that with PBM files, software can attempt to make grey by having black and white dots, to differentiate between dark and lighter objects. (called *dithering*)
 
@@ -48,7 +48,7 @@ SO a slow shutter speed can cause motion blurring.. Fast shutter speed can freez
 Imagine it's a windy day and you're taking a photo of a flower blowing in the wind. You'll need a fast shutter (small exposure time) speed to freeze the movement of the flower to allow for the correct amount of light to reach the lens (correct exposure) you need to open the aperture wider.
 
 
-Small aperture can keep the whole scene in focus, Large Aperture cn reduce the depth of field.. Note that a smaller f equals a larger aperture (aperture = 1/f)
+Small aperture can keep the whole scene in focus, Large Aperture can reduce the depth of field.. Note that a smaller f equals a larger aperture (aperture = 1/f)
 
 ![[Pasted image 20230419203954.png|500]]
 
@@ -108,12 +108,3 @@ We have however lost data.. some values remain at zero..
 ![[Pasted image 20230419214410.png|600]]
 
 JPEG is lossy compression, as the image cannot be exactly reconstructed, but the higher quality levels allow for close to the original reconstruction. 
-
-
-
-
-
-
-
-
-
