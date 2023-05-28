@@ -35,5 +35,9 @@ A test $t$ can be order-dependent either:
 ### Numbers
 - Whilst flaky tests were equally as common in Python as Java the reasons in python were different; Order dependency caused 59%, 28% were test infrastructure and 13% attributed to use of network or API randomness.
 - A 95% confidence that a passing test case is not flaky on average would require 170 reruns.
+- For Non-order Dependent, we need to run 170 times for 95% confidence whereas for Order-Dependence we need only run 31 times !
 - The problem with flaky tests is that it wastes time and resources - google spends between 2% and 16% of their resources re-running tests...
-- 
+- The root cause of flakiness was 28% infrastructure, 59% Test-Order Dependency (with around 75% of those being ==victims==) and 13% Non-Order dependent (Mostly networks and API Randomness)
+
+
+goto: [[SWE 2 Home Page]]
