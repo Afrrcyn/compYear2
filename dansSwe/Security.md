@@ -33,19 +33,18 @@ When authenticating a user we use credentials - and there are different types of
 Salt and Hash Passwords!
 
 Example Hash functions:
-- MD5 - insecure
-- SHA1 - not recommended
-- SHA2 and SHA3 - secure
+- MD5 - insecure (128 bit)
+- SHA1 - not recommended (160 bit)
+- SHA2 and SHA3 - secure (224, 256, 384, 512 bits)
 
-Example password hash functions:
-- bcrypt
-- scrypt
-- Lyra2
-- Argon2
+Example password hash functions (salt):
+- bcrypt (Blowfish encryption algorithm)
+- scrypt (password based key derivation)
+- Lyra2 (Password hashing)
+- Argon2 (Password hashing)
 (All secure)
 
 Authorisation is the process of specifying access rights.
-
 
 Injections occur when attacks inject untrusted inputs which get processed as part of a command or query.
 
