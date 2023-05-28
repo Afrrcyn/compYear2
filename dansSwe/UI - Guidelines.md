@@ -16,14 +16,16 @@ One of the strengths of these guidelines is that they are generic enough such th
 8. Reduce Short-term memory load.
 
 ##### Strive for Consistency:
-In terms of menus, layout, fonts, colours. The only time we break this rule is when we want to show significance, such as a `Delete` command. With consistency we can keep the user on auto-pilot as everything is familiar enough to the point where we can influence them with Dark Patterns - as they will likely not read all the content on the screen. 
+In terms of menus, layout, fonts, colours. The only time we break this rule is when we want to show significance, such as a `Delete` command. With consistency (making user interface consistent, like using the same fonts, colours, e.t.c.) we can keep the user on auto-pilot as everything is familiar enough to the point where we can influence them with [[compYear2/swe2/UI - Dark Patterns|Dark Patterns]] - as they will likely not read all the content on the screen. 
 
 
 ##### Seek Universal Usability
-Think of the end-users, at all ends from the novice to the expert and adding features for each. We have to think of Age Ranges, Disabilities, Devices and even Situations - like being on the move or weather...
+Think of the end-users, at all ends from the novice to the expert and adding features for each. We have to think of age ranges, disabilities, devices and even Situations - like being on the move or weather...
+Add features for novices, and features for experts.
 
 
 ##### Offer Informative Feedback
+==Error feedback==
 Always offer some form of feedback with level of response normal equating to how frequent and severe the action was.
 
 - Say what happened and why?
@@ -33,13 +35,16 @@ Always offer some form of feedback with level of response normal equating to how
 
 ##### Design Dialogs to Yield Closure
 After a series of actions, if a task is accomplished - tell the user! The user should not be questioning if the action they performed was actually done.
+(If a task is finished or the workflow is done, say it or give a notification)
 
 
 ##### Prevent Errors
+(Data checks and validation)
 Design the UI such that the user cannot make serious errors.. and should errors be made, simple and constructive instructions are provided for recovery.
 
 
 ##### Permit Easy Reversal of Actions
+(Universal)
 As much as possible actions should be reversible such that users are not scared to explore.
 
 
@@ -50,4 +55,10 @@ This more so frustrates experienced users when they struggle to get the desired 
 ##### Reduce Short-term Memory Load
 A rule of thumb is that a user can remember 7±2 chunks of information, whether this applies to when inputting information and outputting information - you generally have to take into account the device that the user is using whilst this exchange happens.
 
-goto: [[UI - Dark Patterns|Examinable Reading]], [[SWE 2 Home Page|Home Page]]
+##### Information Overload
+![[Pasted image 20230528182950.png|400]]
+Overcrowding of icons and data, so many excessive icons etc
+To fix this, we can group similar functionalities so content is disclosed on demand
+
+
+goto: [[UI - Dark Patterns|Dark Patterns (Examinable Pattern)]], [[SWE 2 Home Page|Home Page]]

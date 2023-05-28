@@ -12,7 +12,7 @@ What do Dark Patterns even want??
 ##### Nudging
 This is the act of businesses slightly nudging us based on internal cognitive biases and a lack of knowledge on certain areas.
 
-For example, most people tend not to change the default option, so if you want users to make a certain choice, make it the default option.
+For example, most people tend not to change the default option, so if you want users to make a certain choice, make it their default option, as sticking with the default option requires less effort or decision-making.
 
 ##### Growth Hacking
 Focusing on growth before revenue, where this becomes a problem is where markets become saturated and so they have to adapt to more manipulative methods to grow.

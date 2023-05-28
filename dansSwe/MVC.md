@@ -15,7 +15,7 @@ To simplify this a step further you can think:
 
 ##### Model
 Models represent knowledge.
-Application's data structure which is completely independent of the user interface. Contains and manages the data, logic and rules of the application. Is often implemented as a database
+**[[Application]]**'s data structure which is completely independent of the user interface. Contains and manages the data, logic and rules of the application. Is often implemented as a database
 
 ##### View
 A visual representation of it's model.
