@@ -1,4 +1,4 @@
-Model-View-Controller is a architectural software design pattern.
+Model-View-Controller is an architectural software design pattern.
 
 Originally developed for desktop applications (to implement user interfaces) but is now used for web applications as well.
 

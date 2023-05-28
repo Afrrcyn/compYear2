@@ -28,11 +28,11 @@ Always offer some form of feedback with level of response normal equating to how
 
 - Say what happened and why?
 - Suggest what to do next!
-- Don't use Developer Jargon...
+- Don't use Developer Jargon... (so do not use specialised developer language, but simplistic or accessible language)
 
 
 ##### Design Dialogs to Yield Closure
-After a series of actions, if a task is accomplished - tell the user! the user should not be questioning if the action they performed was actually done.
+After a series of actions, if a task is accomplished - tell the user! The user should not be questioning if the action they performed was actually done.
 
 
 ##### Prevent Errors
