@@ -1,5 +1,8 @@
+#### Unit Testing
+Unit testing is a software testing technique where individual units or components of a program are tested to ensure that they function correctly in isolation.
+
 What makes a good unit test?
-- The only test one thing and do not build on other things.
+- That only tests one thing and do not build on other things.
 And so when test a single component we will have to make use of stubs and mocks and ... to allow us to only test that part we care about.
 
 
@@ -31,7 +34,6 @@ Verification - is it bug-free
 
 A defect is a missing requirement, function, performance, usability issues and a failure is the manifestation of that defect - whether it fails or does not fail
 
-
 Static Analysis - code is not ran - code review, IDE, it can be both manual or automatic.
 Dynamic Analysis - done by a test-suite usually and can be done either manually or automatically.
 
@@ -60,4 +62,4 @@ Regression tests are used when maintenance and refactoring occurs, Regression te
 ![[Pasted image 20230528114652.png]]
 
 
-goto: [[Flaky Tests]], [[SWE 2 Home Page]]
+goto: [[Flaky **Tests]]**, [[SWE 2 Home Page]]

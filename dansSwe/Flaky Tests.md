@@ -24,7 +24,7 @@ A test $t$ can be order-dependent either:
 - Another test $p$ running before $t$ disturbs its execution
 - Another test $s$ is not run before $t$, so $t$ requires $s$ to run before it. 
 
-1. In the first case, t is called a victim and $p$ is called a polluter. Test $p$ changes a shared state that $t$ tries to read from in a way that $t$ fails. When run in isolation, the victim, $t$ passes, as the state is not affected by the polluter. 
+1. In the first case, $t$ is called a victim and $p$ is called a polluter. Test $p$ changes a shared state that $t$ tries to read from in a way that $t$ fails. When run in isolation, the victim, $t$ passes, as the state is not affected by the polluter. 
 2. In the second case, $t$ is called a brittle and $s$ is called a state-setter. Test $t$ needs $s$ to set up a shared state
 
 >[!note] 15th Category of Flakiness
