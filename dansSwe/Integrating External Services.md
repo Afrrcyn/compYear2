@@ -6,7 +6,7 @@ We need to look at Mastodon and check it has the right functionalities for our a
 
 Integration is a three-way conversation between:
 - Service Provider (mastodon)
-- Service Consumer (us and we interact with the service provider with mastondon4j)
+- Service Consumer (us and we interact with the service provider with `mastondon4j`)
 - The User
 
 goto: [[SWE 2 Home Page]]
