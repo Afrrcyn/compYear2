@@ -9,7 +9,7 @@ And so when test a single component we will have to make use of stubs and mocks 
 - Dummy - A dummy is passed around but never used 
 - Fake - A fake generally works as expected, but has some shortcut unsuitable for full production 
 - Stub - A stub provides a canned answer to a particular invocation 
-- Mock - A mock has pre-programmed expectations of how it will be called, and what will happen internally when it is called
+- Mock - A mock has pre-programmed expectations of how it will be called, and what will happen internally when it is called. They return different results in different contexts
 
 So how can we use a Mock to Stub a method?
 We use the `@Mock` for the entity and `@MockBean` for the class that contains the functions we care about. And then we do:

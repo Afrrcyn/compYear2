@@ -1,9 +1,9 @@
 There are 8 and those are split into 2 sections; Data Orientated and Process Orientated, as shown respectively:
 
 Data Orientated deals with the processing of data
-1. Minimise - limit as much as possible the processing of data
-2. Separate - separate the processing of data as much as possible
-3. Abstract - limit as much as possible the detail in which personal data is processed
+1. Minimise - limit as much as possible the processing of data (deleting data ...?)
+2. Separate - separate the processing of data as much as possible (separating does not mean data becomes inaccessible)
+3. Abstract - limit as much as possible the detail in which personal data is processed 
 4. Hide - make personal data unlink-able and unobservable
 -----
 Process Orientated deals with organisational aspects
@@ -25,7 +25,7 @@ Process Orientated deals with organisational aspects
 - For example, a privacy focused social media would allow users to store all posts and images locally instead of centrally.
 
 ##### Abstract
-- This address the question of the level of detail in which we process the personal data
+- This address the question of the level of detail in which we process the personal data (collecting data)
 - We can generalise data slightly to make it less personal - asking for age instead of birthday, City instead of address, ...
 - We can group people to make average data - the less personal the better !
 - You can even add random noise to data - for example adding noise to a person's location.
