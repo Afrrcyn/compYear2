@@ -62,4 +62,4 @@ Regression tests are used when maintenance and refactoring occurs, Regression te
 ![[Pasted image 20230528114652.png]]
 
 
-goto: [[Flaky **Tests]]**, [[SWE 2 Home Page]]
+goto: [[Flaky Tests]], [[SWE 2 Home Page]]
