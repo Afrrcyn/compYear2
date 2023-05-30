@@ -44,7 +44,7 @@ Resources are identified by URIs (Uniform Resource Identifiers) and in the examp
 "/user/new/"
 ```
 
->[!note] URLs identify web address URIs identify resources
+>[!note] URLs identify web address, URIs identify resources
 
 The representation retrieved is dependent on the request and not the identifier. We can use accept headers to control whether you want HTML, XML or JSON.
 
