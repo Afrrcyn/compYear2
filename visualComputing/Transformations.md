@@ -1,4 +1,5 @@
 [[COMP27112]]
+
 >[!warning] Question, Ask in Lecture!
 >[[#^8ce4b4|Here]], doesn't this transformation achieve nothing and therefore what's the point in doing it?
 
@@ -33,14 +34,14 @@ So how do we calculate the new position? Let's draw out an example.
 
 ![[Pasted image 20230208111038.png|500]] 
 
-$$\begin{align} x = R\cos \phi \\ y = R\sin \phi \\ x' = R\cos(\theta + \phi) \\ y' = R\sin(\theta + \phi)  \end{align}$$Note that also: $$\begin{align} x' = R\cos \phi \cos\theta - R\sin \phi \sin\theta \\ y' = R \cos \phi \sin \theta + R \sin \phi \cos \theta \end{align}$$ And we can substitute $x$ and $y$ into the above equations giving us:  $$\begin{align} x' = x\cos \theta - y \sin \theta \\ y' = x \sin \theta + y \sin \theta \end{align}$$
+$$\begin{align} x = R\cos \phi \\ y = R\sin \phi \\ x' = R\cos(\theta + \phi) \\ y' = R\sin(\theta + \phi)  \end{align}$$Note that also: $$\begin{align} x' = R\cos \phi \cos\theta - R\sin \phi \sin\theta \\ y' = R \cos \phi \sin \theta + R \sin \phi \cos \theta \end{align}$$ And we can substitute $x$ and $y$ into the above equations giving us:  $$\begin{align} x' = x\cos \theta - y \sin \theta \\ y' = x \sin \theta + y \cos \theta \end{align}$$
 ![[IMG_FDC27F486036-1.jpeg|500]]
 [The image above, is just me visually trying to understand how rotation works and how we figured out the equation above]
 
 Note that if we are not rotating around the origin but rather a point, say point $Q$ = $(x_1, y_1)$ then we simply translate all points (by the same translation) such that point $Q$ becomes the **origin** - we then perform the rotation and then translate the origin back to $Q$ (which was not origin but the original starting point).
 
 ##### Rotations (3D)
-- for Rotation in the Z axis, on the vector $\big [x,\ y,\ z \big]$, the $z$ value stays the same and so, it's simply a 2D rotation on the values $x$ and $y$ thus: $$\begin{align} x' = x\cos \theta - y \sin \theta \\ y' = x \sin \theta + y \sin \theta \\ z' = z \end{align}$$
+- for Rotation in the Z axis, on the vector $\big [x,\ y,\ z \big]$, the $z$ value stays the same and so, it's simply a 2D rotation on the values $x$ and $y$ thus: $$\begin{align} x' = x\cos \theta - y \sin \theta \\ y' = x \sin \theta + y \cos \theta \\ z' = z \end{align}$$
 
 ##### Rotations (3D) around a vector
 - In 3D we may want to rotate or scale about an arbitrary axis vector...
@@ -81,15 +82,15 @@ $$\begin{align} \begin{bmatrix} x' \\ y' \\ z' \\ 1 \\ \end{bmatrix} = \begin{bm
 $$\begin{align} \begin{bmatrix} x' \\ y' \\ z' \\ 1 \\ \end{bmatrix} = \begin{bmatrix} \cos\theta & -\sin\theta & 0 & 0 \\ \sin\theta & \cos \theta & 0 & 0 \\ 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 1 \end{bmatrix} . \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} \end{align}$$
 
 ##### Composite Transformations
-Remember earier when we spoke about rotating a vector around a point as opposed to the origin and that we would translate the point to the origin, perform the rotation and translate back, well we can perform all these transformations separately - or, we can turn all the operations into one matrix and apply one operation:
+Remember earlier when we spoke about rotating a vector around a point as opposed to the origin and that we would translate the point to the origin, perform the rotation and translate back, well we can perform all these transformations separately - or, we can turn all the operations into one matrix and apply one operation:
 $$\begin{align} P' = T_2.T_1.P \\ T_c = T_2. T_1 \\ 
 P' = T_c.P\end{align}$$
-By multiplying matrices together we get the affect of applying both of them to a vector, note however that the order in which we multiply and apply them to a vector is important. So it's non commutative! (so order matters, tim was wrong?p)
+By multiplying matrices together we get the affect of applying both of them to a vector, note however that the order in which we multiply and apply them to a vector is important. So it's non commutative! (so order matters, Tim was wrong?)
 
 > [!NOTE]
 > Commutative: Commutative refers to a mathematical property where the order of the operands does not affect the result of the operation. In other words, if a mathematical operation is commutative, it means that switching the order of the operands does not change the outcome.
 
-We might also need this for when scaling, if we do not scale a point about the origin, we will end up translating it as well and we may not want to do that, so we translate to origin, scale and translate back, this can be made into 1 transformation using 3 operations, with operation 3 undoing the affects of operation 1.
+We might also need this for scaling, if we do not scale a point about the origin, we will end up translating it as well and we may not want to do that, so we translate to origin, scale and translate back, this can be made into 1 transformation using 3 operations, with operation 3 undoing the affects of operation 1.
 
 ##### Inverse Matrix
 What if we want to undo a transformation? Well we simply find the inverse of a matrix, and that undoes what the matrix did. Say for example: $$\begin{align} A = \begin{bmatrix} 1 & 0 & 0 & \text{t}x \\ 0 & 1 & 0 & \text{t}y \\ 0 & 0 & 1 & \text{t}z \\ 0 & 0 & 0 & 1 \end{bmatrix}  \end{align}$$ (Note this is a Translation Matrix, we can then use the inverse) $$\begin{align} B = \begin{bmatrix} 1 & 0 & 0 & -\text{t}x \\ 0 & 1 & 0 & -\text{t}y \\ 0 & 0 & 1 & -\text{t}z \\ 0 & 0 & 0 & 1 \end{bmatrix}  \end{align}$$
@@ -114,7 +115,7 @@ Step 3: Rotate $A_2$ about the Z axis until it is coincident with the X-axis, th
 
 ![[Pasted image 20230209203820.png|400]]
 
-Step 4: Perform the desired rotation about the X-axis by $\theta$ (which we know how to do!) This is transformation $M_4$ ^8ce4b4
+Step 4: Perform the desired rotation about the X-axis by $\theta$ (which we know how to do!) This is transformation $M_4$
 
 ![[Pasted image 20230209204043.png|400]]
 
@@ -136,7 +137,7 @@ $P_{drawn} = \text{ProjectionMatrix} \times \text{Model-ViewMatrix} \times P_{sp
 
 ### Essential Vector Geometry!
 >[!note] Note
->Note $wth$ coordinate stays at 1 despite any operation
+>Note $w-th$ coordinate stays at 1 despite any operation
 
 - ==Addition== - Subtraction works in much the same way!
 $$\begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} + \begin{bmatrix} x' \\ y' \\ z' \\ 1 \end{bmatrix} = \begin{bmatrix} x + x' \\ y+y' \\ z+z' \\ 1 \end{bmatrix}$$
@@ -162,7 +163,7 @@ $$\begin{bmatrix} x_1 \\ y_1 \\ z_1 \\ 1 \end{bmatrix}.\begin{bmatrix} x_2 \\ y_
 > ![[Pasted image 20230210001755.png|300]]
 
 - Cross Product - known as outer product and gives a vector 
-$$\begin{bmatrix} x_1 \\ y_1 \\ z_1 \\ 1 \end{bmatrix}.\begin{bmatrix} x_2 \\ y_2 \\ z_2 \\ 1 \end{bmatrix} = \begin{bmatrix} y_1\times z_2 - z_1 \times y_2 \\ z_1\times x_2 - x_1 \times z_2 \\ x_! \times y_2 - y_1 \times x_2 \\ 1 \end{bmatrix}$$ [Don't worry about remembering this, but do note that the cross product is perpendicular to both of the original two vectors!]
+$$\begin{bmatrix} x_1 \\ y_1 \\ z_1 \\ 1 \end{bmatrix}.\begin{bmatrix} x_2 \\ y_2 \\ z_2 \\ 1 \end{bmatrix} = \begin{bmatrix} y_1\times z_2 - z_1 \times y_2 \\ z_1\times x_2 - x_1 \times z_2 \\ x_1 \times y_2 - y_1 \times x_2 \\ 1 \end{bmatrix}$$ [Don't worry about remembering this, but do note that the cross product is perpendicular to both of the original two vectors!]
 
 
 ### Shaders
@@ -219,10 +220,3 @@ void main() {
 
 ![[Pasted image 20230210103504.png|600]]![[Pasted image 20230210103941.png|600]]![[Pasted image 20230210102241.png|600]]
 ![[Pasted image 20230210102448.png|600]]
-
-
-
-
-
-
-

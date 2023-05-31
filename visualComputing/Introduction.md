@@ -105,7 +105,7 @@ Desktop version of OpenGL is different to the portable version of OpenGL
 
 ![Untitled](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%204.png)
 
-Application program uses a graphic software that incorporates some functions for drawing basic shapes to build up objects. Transformations of those basic shapes will include methods of working out what those shapes or what that accumulation of shapes looks like form some particular viewing direction. The output of the graphics software is a set of pixels which his written into frame buffer memory. That frame buffer memory maps onto the screen memory (what does this mean?). All graphics systems work the same way. Application program is run on your CPU whereas graphic software often runs on a graphics processing unit (GPU), because although the operations are simple, they occur a lot of times, hence your GPU would speed up the rendering process.
+Application program uses a graphic software that incorporates some functions for drawing basic shapes to build up objects. Transformations of those basic shapes will include methods of working out what those shapes or what that accumulation of shapes looks like from some particular viewing direction. The output of the graphics software is a set of pixels which his written into frame buffer memory. That frame buffer memory maps onto the screen memory (what does this mean?). All graphics systems work the same way. Application program is run on your CPU whereas graphic software often runs on a graphics processing unit (GPU), because although the operations are simple, they occur a lot of times, hence your GPU would speed up the rendering process.
 
 <aside>
 🎭 Render / Rendering: Rendering in computer graphics refers to the process of generating a photorealistic or non-photorealistic 2D or 3D image from a model by simulating the interactions of light with the virtual objects in a scene. This includes shading, shadows, reflections, and other visual effects, and can be done using a variety of algorithms, including rasterization and ray tracing. The result of this process is a final visual representation of the scene that can be displayed on a screen, stored in a file, or printed.
@@ -126,7 +126,7 @@ Input of 3D vertices and output of pixels. Sequence of operations is fixed, ther
 
 The pipeline is now a mixture of fixed and programmable
 
-Some sequences are still fixed however there are a two functions which the programmer has to implement himself. 
+Some sequences are still fixed however there are two functions which the programmer has to implement himself. 
 
 Shaders:
 
@@ -144,7 +144,7 @@ Shaders:
 
 </aside>
 
-![This is the basic structure. There are other kinds of user-supplied programs too, e.g. ‘geometry’ and ‘tessellation’ shaders](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%207.png)
+![This is the basic structure. There are other kinds of user-supplied programs too, e.g. ‘geometry’ and ‘tessellation’ shaders|400](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%207.png)
 
 This is the basic structure. There are other kinds of user-supplied programs too, e.g. ‘geometry’ and ‘tessellation’ shaders
 
@@ -177,7 +177,7 @@ Programmable Pipeline:
 - It does not handle interaction devices
 - For interaction, we use the `GLUT` library, however there are other GUI libraries
 
-![Untitled](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2010.png)
+![Untitled|400](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2010.png|)
 
 ### Graphics
 
@@ -188,7 +188,7 @@ The main features of OpenGL are:
 - Camera (for viewing)
 - Hidden surface removal
     
-    ![GIF](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled.gif)
+    ![GIF|400](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled.gif)
     
     GIF
     
@@ -206,33 +206,33 @@ The main features of OpenGL are:
     
 - Lines
     
-    ![Untitled](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2013.png)
+    ![Untitled|400](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2013.png)
     
 - Polygons
     
-    ![Untitled](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2014.png)
+    ![Untitled|400](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2014.png)
     
 
 ### Transformations
 
 - Scaling
     
-    ![Untitled](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2015.png)
+    ![Untitled|400](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2015.png)
     
 
 - Shearing
     
-    ![Untitled](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2016.png)
+    ![Untitled|400](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2016.png)
     
 
 - Rotations
     
-    ![Untitled](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2017.png)
+    ![Untitled|400](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2017.png)
     
 
 ### Support Libraries
 
-![Untitled](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2018.png)
+![Untitled|400](Introduction%204500607d0fc64d2a90ceace7e2fbc360/Untitled%2018.png)
 
 ## GLU
 
