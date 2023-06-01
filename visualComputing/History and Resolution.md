@@ -3,7 +3,7 @@
 1920
 Bartlane Picture Transmission Service
 - used submarine telegraph cables to send pictures across the Atlantic.
-- The can reproduce the image by decoding the grey dots
+- They can reproduce the image by decoding the grey dots
 
 1964
 Computer Enhancement of Images from NASA Moon Probes

@@ -64,7 +64,7 @@ What about Boundaries of blobs?
 
 And we go around clockwise, looking at neighbours... so we know we're done because when we reach $O_0$ - if the next pixel after that is $O_1$, then we know we're done!
 
-![[Pasted image 20230526164403.png]]
+![[Pasted image 20230526164403.png|400]]
 
 ### Blob Descriptions!
 

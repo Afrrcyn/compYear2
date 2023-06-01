@@ -222,7 +222,7 @@ The wider the angle of the camera the higher the amount of barrel distortion. Th
 
 ![[Pasted image 20230313114841.png|500]]
 
-As your move further from the radius the level of distortion increases and we can model it with the constants $k_n$ 
+As you move further from the radius the level of distortion increases and we can model it with the constants $k_n$ 
 
 There's also Tangential Distortion. Using this equations we can try to model the distortion to reverse engineer to get the original image with no distortion.
 

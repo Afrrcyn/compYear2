@@ -44,7 +44,7 @@ Originally developed by Intel, it's now an Open Source Computer Vision/ Image Pr
 
 In $1665$ Sir Isaac Newton discovered that light is composed of Red, Orange, Yellow, Green, Blue, Indigo and Violet -  we know there are for more.
 
-Thomas Young was looking at light and discovered you can approximate most colours with just Red Green and Blue (not all colours ofcourse)
+Thomas Young was looking at light and discovered you can approximate most colours with just Red Green and Blue (not all colours of course)
 
 In your eyes you have 
 - Rods - for low light vision - no colour

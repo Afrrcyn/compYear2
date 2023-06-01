@@ -30,7 +30,7 @@ Is there a better way to find the edges of an image? Yes:
 
 ![[Pasted image 20230320201157.png|500]]
 
-$W$ convolved with $I(x, y)$.. so in this case the kernel $W$ is a 3 by 3 matrix, so in our example, we conside $W_4$ to be the origin and consider $a$ and $b$ to be 1, so that's why there's a 3 by 3 matrix because we're going to be look at all the surrounding pixels when $a$ and $b$ equal 1
+$W$ convolved with $I(x, y)$.. so in this case the kernel $W$ is a 3 by 3 matrix, so in our example, we consider $W_4$ to be the origin and consider $a$ and $b$ to be 1, so that's why there's a 3 by 3 matrix because we're going to be looking at all the surrounding pixels when $a$ and $b$ equal 1
 
 ![[Pasted image 20230320201639.png|500]]
 
@@ -66,8 +66,7 @@ If we need to convolve an image twice, we can just combine the two kernels into 
 The next question is why would we want to split it up? Well if you look at the 3x3 Matrix we can note that for each pixel it will perform 9 Multiply and Additions where as the other 2 kernels together will only perform 6 Multiply and Additions per pixel.
 
 ##### Separable Kernels
-![[Pasted image 20230414171347.png|400]]
-![[Pasted image 20230414171500.png|400]]
+![[Pasted image 20230601162639.png|600]]
 
 
 ##### Application of Convolution
@@ -83,7 +82,7 @@ We can also use a kernel to sharpen an image:
 
 ![[Pasted image 20230321085656.png|400]]
 
-(Not here we end up with (5 * value) - (4 * values), this is how we try to ensure our values stays within one byte)
+(Note here we end up with (5 * value) - (4 * values), this is how we try to ensure our values stays within one byte)
 
 We can also use it for edge detection, one example is Laplacian:
 
@@ -123,7 +122,7 @@ The corners here are still nice and sharp however the salt and pepper has not re
 
 ##### Gaussian Smoothing
 We use the gaussian smoothing because it removes ringing, as it uses weighted smoothing where the weights are derived from a normal distribution (gaussian).
-(Less weighting is given the pixels further away from the centre of the kernel)
+(Less weighting is given to the pixels further away from the centre of the kernel)
 
 ![[Pasted image 20230321194256.png|400]]
 
@@ -133,7 +132,7 @@ Another filter we can use is a median filter.
 
 ![[Pasted image 20230321194346.png|400]]
 So, sort the values out, take the median out and that is your value.
-![[Pasted image 20230415071338.png|450]]
+![[Pasted image 20230601163038.png|450]]
 
 ![[Pasted image 20230321194515.png|400]]
 

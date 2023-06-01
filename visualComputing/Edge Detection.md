@@ -32,7 +32,7 @@ How do these 2 deal with noise?
 
 ![[Pasted image 20230321220755.png|400]]
 
-Prewitt actually has less noise. And so why does the prewitt reduce noise? Well prewitt kernel separates into an averaging filter that smooths across the rows and edge detector along the horizontal lines.
+Prewitt actually has less noise. And so why does the Prewitt reduce noise? Well Prewitt kernel separates into an averaging filter that smooths across the rows and edge detector along the horizontal lines.
 
 There's another filter for edge detection called Sobel:
 
@@ -40,7 +40,7 @@ There's another filter for edge detection called Sobel:
 
 This is a weighted average filter that smooths along the rows and an edge detector which finds horizontal edges.
 
-An Prewitt and Sobel are very very similar!
+And Prewitt and Sobel are very very similar!
 
 ![[Pasted image 20230322090005.png|400]]
 
