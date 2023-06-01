@@ -68,9 +68,9 @@ Some file formats allow for 16 bits per channel (so 48 bit colour)
 ##### Smaller Sizes
 What about older file formats? If we have an embedded system with limited memory or display with less colours, can we store images with less data?
 
-![[Pasted image 20230419211930.png|400]]
+![[Pasted image 20230419211930.png|500]]
 
-creates a palette of the most popular colours.. so it allows for the 256 most popular colours and such is diff for each image!
+Creates a palette of the most popular colours.. so it allows for the 256 most popular colours and such is diff for each image!
 
 We can also do something like 8 bits for each pixel, 3 bits for R, 3 bits for G and 2 bits for B, this is popular for embedded LCD displays.
 
