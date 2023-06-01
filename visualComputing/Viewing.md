@@ -48,7 +48,8 @@ Let's look at our camera coordinate system:
 Here $\hat U,\ \hat F$ and $\hat S$ are the axis of the camera. $E$ is the position and orientation $C$, so we want to use these to derive what the camera system is.
 
 To find $\hat F$, it's $E - C$ then normalise it. So calculate $F$ first ($E - C$), then normalize F to get $\hat F$
-![[Pasted image 20230411022426.png|500]]
+![[Pasted image 20230531202802.png|400]]
+
 
 $\hat U$ is orthogonal to $\hat F$ and then normalise!
 >[!definition]
@@ -76,8 +77,7 @@ So what is $T_c$ We firstly translate by $-E$
 
 Rotate the camera axes to be coincident with the world axes with $\hat F$ aligned to $Z$
 
-![[Pasted image 20230214223904.png]]
-
+![[Pasted image 20230214223904.png|400]]
 [DW about derivation, trust us x]
 
 Thus $T_c ^{-1} = T2 \times T1$

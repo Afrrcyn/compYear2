@@ -73,7 +73,7 @@ So how do we compute where a point should be projected to in a perspective proje
 
 ![[Pasted image 20230221102716.png|300]]
 
-The point $(x,\ y,\ z)$ will converge to the origin, and goes through the point $(x_p,\ y_p,\ z_p)$ and then hits the origin, and we set the projection plane to be $z_p = d$, so how do we work out $x_p$ and $y_p$.
+The point $(x,\ y,\ z)$ will converge to the origin, and go through the point $(x_p,\ y_p,\ z_p)$ and then hit the origin, and we set the projection plane to be $z_p = d$, so how do we work out $x_p$ and $y_p$.
 
 Let's look at the top down view:
 
@@ -105,10 +105,9 @@ But this makes no sense - it looks nothing like it's supposed to, however we sho
 
 ##### Summary
 We derived the matrix to perform a 1-point projection where the projection is parallel to the $XY$ plane.
+![[Pasted image 20230601013033.png|450]]
+![[Pasted image 20230601013044.png|450]]
 
-![[Pasted image 20230412063803.png|450]]
-
-![[Pasted image 20230412063825.png|450]]
 
 ### Viewing Volumes and Clipping
 
@@ -140,7 +139,6 @@ Frustum is defined by the near plane and far plane. Also by a field of view angl
 
 Constructor for Perspective camera
 ![[Pasted image 20230221195301.png]]
-
 
 ###### Problem with perspective projection:
 A projection matrix transforms a 3D point to a 3D point with W != 1 for example for a 1-point perspective projection. 

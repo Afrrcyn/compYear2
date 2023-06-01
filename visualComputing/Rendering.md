@@ -9,7 +9,7 @@
 >Rasterisation: Rasterization is a process used in computer graphics to convert vector graphics or 3D models into a raster image, which is a collection of pixels or dots that can be displayed on a computer screen or printed on paper.
 
 
-In three.js
+In `three.js`
 - Achieved by the material constructor:
 	- ShaderMaterial
 	- MeshBasicMaterial
@@ -89,7 +89,6 @@ Let's look at ambient... The light bulb gives off rays of lights and together th
 >$$I = K_a I_a$$
 
 Wireframe versus Ambient
-
 ![[Pasted image 20230222184147.png|400]]
 
 You lose all sense of surfaces... as all surfaces are reflecting equally....
@@ -203,14 +202,12 @@ How $n$ affects it..
 
 ![[Pasted image 20230222211246.png|400]]
 
-
-
 Remember:
-$$I_{\text{specular}} = S(\phi,\ \theta,\ \lambda)$$ And we've looked at $\phi$, the viewing angle.
+$$I_{\text{specular}} = S(\phi,\ \theta,\ \lambda)$$And we've looked at $\phi$, the viewing angle.
 The wavelength of illuminant ($\lambda$) and Angle of incidence ($\theta$) are what we gonna look at.
 
 ![[Pasted image 20230223110841.png|400]]![[Pasted image 20230223111134.png|400]]
-If angle of incidence increases, amoung of light reflected also increased (?)
+If angle of incidence increases, amount of light reflected also increased (?)
 
 We cannot assume that the amount of reflected light is independent of the angle of incidence but that is just not the case - as showed by the images above... and image below
 
