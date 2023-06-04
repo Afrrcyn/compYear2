@@ -115,8 +115,3 @@ So why do we stop the simplex method when we have no negative values in the very
 goto: [[COMP26120|Home COMP26120]]
 
 
-
-
-
-
-
