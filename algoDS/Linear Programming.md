@@ -64,3 +64,6 @@ Now $b$, it's everything that is less than or equal to $b$:
 ![[Pasted image 20230227200941.png]]
 
 ![[Pasted image 20230227200952.png]]
+
+
+goto: [[COMP26120|Home COMP26120]]
