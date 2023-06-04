@@ -97,19 +97,19 @@ Weights = Edges that are numbered on the graph
 
 Weighted graph = A graph that has weights on it’s edges
 
-A weighted graph is similar to an adjacency matrix but instead of true, false or 1,0 which acknowledges there exists a path between two particular nodes, we have the weight of that edge stored at the particular point in the weighted graph. Case where no path exists, we put $\infin$ on it
+A weighted graph is similar to an adjacency matrix but instead of true, false or 1,0 which acknowledges there exists a path between two particular nodes, we have the weight of that edge stored at the particular point in the weighted graph. Case where no path exists, we put $\infty$ on it
 
 - Graph as ******weight****** matrix $w$
-    - $E = \{(u,v) \ | \ w(u,v) \ne \infin \}$
+    - $E = \{(u,v) \ | \ w(u,v) \ne \infty \}$
     - $w(u,v) = d$ — Edge between $u$ and $v$ has weight $d$ (time)
-    - $w(u,v) = \infin$ — No edge between $u$ and $v$
+    - $w(u,v) = \infty$ — No edge between $u$ and $v$
 - Path $p$ is list of nodes
     - Path between $u$ and $v$: $upv$, where $p$ is the **list** of nodes it has taken you to traverse to get from $u$ to $v$
     - Weight of path: $|u_1, ..., u_n|:= \sum_{i=1}^n w(u_i, u_{i+1})$
-    - $|p| = \infin$ means path $p$ is not feasible
+    - $|p| = \infty$ means path $p$ is not feasible
 - $\delta(u,v)$ — distance between $u$ and $v$ (distance between two nodes that has the minimum weight)
     - $\delta(u,v):= min|upv|$ for all paths $p$
-    - $\delta(u,v) = \infin$ — No path from $u$ to $v$
+    - $\delta(u,v) = \infty$ — No path from $u$ to $v$
 
 ## Weight Matrix
 
@@ -117,7 +117,7 @@ A weighted graph is similar to an adjacency matrix but instead of true, false or
 
 We can see from the weight matrix graph as if we are going from a → b, we have a value of 3 on the graph, which is equivalent to the time it takes to get to b from a on the graph. Hence a weight matrix represents possible paths with weights instead of true and false.
 
-For nodes that do not have a path to, those are represented by $\infin$
+For nodes that do not have a path to, those are represented by $\infty$
 
 ## Shortest Path
 
@@ -149,15 +149,15 @@ The shortest path, is the one with the lowest weight as a summation
 - Compute shortest paths from $start \ node \ s$ to any node
     - Notation: $\delta(u):= \delta(s,u)$ (We know we are always going to start from $s$ so we can simply represent it by ignoring $s$ and just writing $\delta(u)$
 - Start with over-estimate $D$. $D(u) \gt= \delta(u)$
-    - $D(s)=0, D(u) = \infin, u \ne s$
-    - What we are doing is setting the distance to $\infin$ to over-estimate all distances, apart from the starting node. Start node is 0 units away from the start node because we start at the start node 🤦‍♂️
+    - $D(s)=0, D(u) = \inf, u \ne s$
+    - What we are doing is setting the distance to $\infty$ to over-estimate all distances, apart from the starting node. Start node is 0 units away from the start node because we start at the start node 🤦‍♂️
 - Improve estimate until precise
     - For edge $(u,v) (relax\ edge)$
         
         ![Untitled](Shortest%20Paths%20b7f11b102a344bfd91a1810002067249/Untitled%207.png)
         
     - If path over $(u,v)$ better than current $D(v):$ adjust $D(v)$
-    - Basically, can we get a better estimate than what we have previously (remember we start with $\infin$
+    - Basically, can we get a better estimate than what we have previously (remember we start with $\infty$
 
 ![Untitled](Shortest%20Paths%20b7f11b102a344bfd91a1810002067249/Untitled%208.png)
 
@@ -211,7 +211,7 @@ Similar to proof by induction ?
 
 ![Didn’t really understand, watch the video on this part, again! For the prefix part, if we have a shortedt path that is a→b→c→d (which is a shortest path from a to d, a prefix of that path which is a→b→c is also a shortest path (which is from a→c only)](Shortest%20Paths%20b7f11b102a344bfd91a1810002067249/Untitled%2010.png)
 
-Didn’t really understand, watch the video on this part, again! For the prefix part, if we have a shortedt path that is a→b→c→d (which is a shortest path from a to d, a prefix of that path which is a→b→c is also a shortest path (which is from a→c only)
+Didn’t really understand, watch the video on this part, again! For the prefix part, if we have a shortest path that is a→b→c→d (which is a shortest path from a to d, a prefix of that path which is a→b→c is also a shortest path (which is from a→c only)
 
 ## Negative Weight Cycles
 
@@ -245,7 +245,6 @@ A negative weight cycle is one where the summation of weights across our cycle i
 ![Untitled](Shortest%20Paths%20b7f11b102a344bfd91a1810002067249/Untitled%2011.png)
 
 ![GIF](Shortest%20Paths%20b7f11b102a344bfd91a1810002067249/2.gif)
-
 GIF
 
 As from the final product we see a negative value for all vertices, we need to stop as we cannot go on further as we have a negative weight cycle which would go on until infinity (i think?)
