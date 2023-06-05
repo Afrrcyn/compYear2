@@ -99,6 +99,10 @@ And what we actually have to do is look at the coefficients - for $x_2$ we have 
 
 ![[Pasted image 20230313220345.png|400]]
 
-Whereas when we were looking $x_1$, both were positive. As $x_1$ gets bigger and bigger, it will go outside the feasible region whereas with $x_2$ as it gets bigger and bigger it will stay within the feasible region. (when you have 0 slack and negative coefficient, then you can pick the smallest positive slack as your leaving variable) What do you do when you have multiple zero slacks? Always look for the smallest positive slack. What if the coefficients are positive with zero slack? Well then pick the smallest positive coefficient.
+Whereas when we were looking $x_1$, both were positive. As $x_1$ gets bigger and bigger, it will go outside the feasible region whereas with $x_2$ as it gets bigger and bigger it will stay within the feasible region. 
+Tips:
+- When you have 0 slack and negative coefficient, then you can pick the smallest positive slack as your leaving variable) 
+- If you have multiple zero slacks? Always look for the smallest positive slack. 
+- If the coefficients are positive with zero slack? Well then pick the smallest positive coefficient.
 
 goto: [[COMP26120|Home COMP26120]]
